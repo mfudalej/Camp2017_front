@@ -1,9 +1,11 @@
+ //variables
  $blue: #0BBED3;
  $white: #fff;
 
+ //fonts
  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400&subset=latin-ext');
 
- //iconmoon
+    //iconmoon
  @font-face {
    font-family: 'icomoon';
    src:  url('../fonts/icomoon.eot?s9iv6r');
@@ -30,8 +32,26 @@
    -moz-osx-font-smoothing: grayscale;
  }
 
+ @font-face {
+   font-family: 'robotothin';
+   src: url('../fonts/roboto-thin-webfont.woff2') format('woff2'),
+   url('../fonts/roboto-thin-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+
+ }
+
+ @font-face {
+   font-family: 'robotobold';
+   src: url('../fonts/roboto-bold-webfont.woff2') format('woff2'),
+   url('../fonts/roboto-bold-webfont.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+
+ }
+
  body {
-   font-family: 'Roboto', sans-serif;
+   font-family: 'robotothin';
    background: url(../img/bg.jpg) no-repeat center center fixed;
    -webkit-background-size: cover;
    -moz-background-size: cover;
@@ -65,7 +85,7 @@
   min-height: 450px;
   text-align: center;
   border-radius: 1%;
-  padding-top: 35px;
+  padding-top: 20/606*100%;
 
   h1 {
     font-family: 'Roboto', sans-serif;
@@ -98,13 +118,13 @@
   .username {
     text-align: center;
     width: 50%;
-    margin-top: 26/606*100%;
-    margin-bottom:21/606*100%;
+    padding-top: 26/606*100%;
+    margin: auto;
 
     p {
       display: inline-block;
       font-size: 18px;
-      font-weight: bold;
+      font-family: 'robotobold';
       margin: 0;
     }
     .reset-username {
@@ -120,6 +140,8 @@
 
   .password {
     width: 100%;
+    margin: auto;
+
     input {
       display: inline-block;
       width: 409/546*100%;
@@ -145,7 +167,8 @@
   }
 
   .button-row {
-    margin-top: 22/606*100%;
+    padding-top: 22/606*100%;
+    margin: auto;
 
     button {
       padding: 0;
@@ -172,15 +195,16 @@
   color: $white;
 
   .menu {
-    padding-left: 10px;
+
     li {
+
       a {
         color: $white;
         text-transform: uppercase;
         font-size: 11px;
-        font-weight: bold;
+        font-family: 'robotobold';
         letter-spacing: 0.3px;
-        padding: 10px 2px 10px 10px;
+        padding: 10px 10px 10px 0px;
       }
     }
   }
@@ -195,7 +219,8 @@
       a {
         color: $white;
         display: block;
-        padding: 0.7rem 1rem;
+        padding: 0.7rem 0;
+        text-align: right;
 
         .icon-facebook:before {
         content: "\e901";
