@@ -1,0 +1,12 @@
+.DS_Store
+bower_components
+node_modules
+npm-debug.log
+css
+.idea
+.bowerrc
+CHANGELOG.md
+README.md
+bower.json
+package.json
+fonts/
