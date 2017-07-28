@@ -70,11 +70,10 @@
 .logo {
   float: right;
   width: 180/300*100%;
-  //height:
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 5px;
 
-  img {
+  .logo-img {
     width: 100%;
     height: 100%;
     padding: 20%;
@@ -87,7 +86,7 @@
   width: 100%;
   max-width: 545px;
   height: 65vh;
-  min-height: 450px;
+  min-height: 520px;
   text-align: center;
   border-radius: 1%;
   padding-top: 20/606*100%;
@@ -109,7 +108,7 @@
     margin: 0 auto 135px auto;
   }
 
-  .login-section {
+  .login-form {
     border: solid 1px #47cbdc;
     border-radius: 4px;
     height: 250px;
@@ -151,6 +150,12 @@
         margin-top: 10px;
         margin-left: 10px;
         background-color: #40CBDC;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          transform: rotate(180deg) scale(1.2);
+          background-color: red;
+        }
       }
     }
 
@@ -159,7 +164,7 @@
       margin: auto;
       padding-top: 5px;
 
-      input {
+      .password-input {
         display: inline-block;
         width: 409/546*100%;
         height: 35px;
@@ -167,6 +172,7 @@
         margin: 0;
         border-radius: 3px;
         border-top: solid 2px #C8C8C8;
+        text-align: center;
       }
 
       .on-screen-keyboard {
@@ -175,6 +181,16 @@
         padding: 0;
         margin: 0;
         background-color: transparent;
+        transition: all .2s ease-in-out;
+
+        &:hover {
+          //color: darken($blue, 8%);
+          transform: scale(1.2);
+        }
+
+        &:active {
+          color: darken($blue, 25%);
+        }
 
         .icon-keyboard:before {
           content: "\e900";
@@ -188,7 +204,7 @@
       padding-top: 20px;
       margin: auto;
 
-      button {
+      .login-button {
         padding: 0;
         border: 0;
         font-size: 15px;
@@ -196,15 +212,33 @@
         height: 31px;
         border-radius: 2px;
         text-transform: uppercase;
+
       }
 
       .button-select-other {
         background-color: $blue;
+
+        &:hover {
+          background: darken($blue, 8%);
+        }
+
+        &:active {
+          background: darken($blue, 25%);
+        }
       }
 
       .button-go {
         color: #000000;
         background-color: #ffffff;
+
+        &:hover {
+          background: darken($blue, 8%);
+          color: #ffffff;
+        }
+
+        &:active {
+          background: darken($blue, 25%);
+        }
       }
     }
   }
@@ -226,6 +260,14 @@
         font-family: 'roboto_condensedbold', sans-serif;
         letter-spacing: 0.3px;
         padding: 10px 10px 10px 0;
+
+        &:hover {
+          color: darken($blue, 8%);
+        }
+
+        &:active {
+          color: darken($blue, 25%);
+        }
       }
     }
   }
@@ -234,18 +276,28 @@
     list-style: none;
     line-height: 1;
     margin: 0;
+
     li {
       display: list-item;
       width: 100%;
       height: 100%;
+
       a {
         color: $white;
         display: block;
         padding: 0.7rem 0;
         text-align: right;
 
+        &:hover {
+          color: darken($blue, 8%);
+        }
+
+        &:active {
+          color: darken($blue, 25%);
+        }
+
         .icon-facebook:before {
-        content: "\e901";
+          content: "\e901";
         }
       }
     }
