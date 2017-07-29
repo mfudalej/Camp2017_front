@@ -1,0 +1,152 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
+//variables for customization
+$duration: 0.4s;
+$border-size: 2px;
+$border-color: $white;
+$button-width: 150px;
+$button-height: 150px;
+$size-radius: 5px;
+
+$mainFont: 'Montserrat', sans-serif;
+//------------------------------------------------------------------
+
+@mixin border-radius($size-radius, $sideH) {
+  @if $sideH != 'all' {
+    -webkit-border-top-#{$sideH}-radius: $size-radius;
+    -moz-border-top-#{$sideH}-radius: $size-radius;
+    border-top-#{$sideH}-radius: $size-radius;
+    -webkit-border-bottom-#{$sideH}-radius: $size-radius;
+    -moz-border-bottom-#{$sideH}-radius: $size-radius;
+    border-bottom-#{$sideH}-radius: $size-radius;
+  } @else if $sideH == 'all' {
+    -webkit-border-radius: $size-radius;
+    -moz-border-radius: $size-radius;
+    border-radius: $size-radius;
+  }
+}
+
+@mixin sub-button {
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  display: block;
+  opacity: 0;
+}
+
+.animation {
+  width: $button-width;
+  float: right;
+  position: relative;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  height: $button-height;
+  @include border-radius($size-radius, 'all');
+  box-sizing: initial;
+
+  &:hover {
+    border: 2px solid rgba(255, 255, 255, 0);
+  }
+
+  &:hover .hoverBtn:before,
+  &:hover .hoverBtn:after {
+    opacity: 1;
+    -webkit-animation: open $duration;
+    /* Chrome, Safari, Opera */
+    animation: open $duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-direction: normal;
+  }
+  &:hover .hoverBtn-bottom:before,
+  &:hover .hoverBtn-bottom:after {
+    opacity: 1;
+    -webkit-animation: openB $duration;
+    /* Chrome, Safari, Opera */
+    animation: openB $duration;
+    animation-delay: $duration;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+    animation-direction: normal;
+  }
+
+  .hover-el {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    line-height: $button-height;
+
+  }
+
+}
+
+.hoverBtn {
+  width: 100%;
+  height: $button-height;
+  position: absolute;
+  top: -1px;
+
+  &:before {
+    @include sub-button;
+    border-top: solid $border-size $border-color;
+    border-left: solid $border-size $border-color;
+    @include border-radius($size-radius, 'left');
+    right: $button-width/2;
+  }
+  &:after {
+    @include sub-button;
+    border-top: solid $border-size $border-color;
+    border-right: solid $border-size $border-color;
+    @include border-radius($size-radius, 'right');
+    left: $button-width/2;
+  }
+}
+
+.hoverBtn-bottom {
+  width: 100%;
+  height: $button-height;
+  position: absolute;
+
+
+  &:before {
+    @include sub-button;
+    height: $button-height;
+    border-bottom: solid $border-size $border-color;
+    @include border-radius($size-radius, 'right');
+    right: 0;
+  }
+  &:after {
+    @include sub-button;
+    height: $button-height;
+    border-bottom: solid $border-size $border-color;
+    @include border-radius($size-radius, 'left');
+    left: 0;
+  }
+}
+
+@keyframes open {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: $button-width/2;
+    height: 0;
+  }
+  100% {
+    width: $button-width/2;
+    height: $button-height;
+  }
+}
+
+@keyframes openB {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: $button-width/2;
+  }
+}
