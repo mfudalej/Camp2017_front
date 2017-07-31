@@ -1,5 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
-
 //variables for customization
 $duration: 0.4s;
 $border-size: 2px;
@@ -7,8 +5,6 @@ $border-color: $white;
 $button-width: 150px;
 $button-height: 150px;
 $size-radius: 5px;
-
-$mainFont: 'Montserrat', sans-serif;
 //------------------------------------------------------------------
 
 @mixin border-radius($size-radius, $sideH) {
@@ -35,7 +31,7 @@ $mainFont: 'Montserrat', sans-serif;
   opacity: 0;
 }
 
-.animation {
+.logo {
   width: $button-width;
   float: right;
   position: relative;
@@ -78,9 +74,7 @@ $mainFont: 'Montserrat', sans-serif;
     margin: 0 auto;
     text-align: center;
     line-height: $button-height;
-
   }
-
 }
 
 .hoverBtn {
@@ -96,6 +90,7 @@ $mainFont: 'Montserrat', sans-serif;
     @include border-radius($size-radius, 'left');
     right: $button-width/2;
   }
+
   &:after {
     @include sub-button;
     border-top: solid $border-size $border-color;
@@ -118,6 +113,7 @@ $mainFont: 'Montserrat', sans-serif;
     @include border-radius($size-radius, 'right');
     right: 0;
   }
+
   &:after {
     @include sub-button;
     height: $button-height;
