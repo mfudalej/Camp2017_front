@@ -1,7 +1,12 @@
- body {
+ .background {
    font-family: 'roboto_condensedlight', sans-serif;
-   background: url(../img/bg.jpg) no-repeat 50% 100% fixed;
+   background: url(../img/bg.jpg) no-repeat 50% 80% fixed;
    background-size: cover;
+   height: auto;
+   min-height: 100%;
+   min-width: 674px;
+   position: fixed;
+   width: 100%;
  }
 
  .container {

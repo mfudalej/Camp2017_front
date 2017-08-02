@@ -5,17 +5,18 @@ $(document).ready(function() {
     $(".container").fadeIn(1000);
 });
 
-$('#password')
+// virtual keyboard
+$('#keyboard')
     .keyboard({
+        language: 'pl',
         openOn : null,
-        stayOpen : true,
-        layout : 'qwerty'
-    })
-    .addTyping();
+        layout: 'polish-qwerty',
+        // stayOpen : true,
+        // usePreview: false
+    });
 
-$('#password-opener').click(function(){
-    var kb = $('#password').getkeyboard();
-    // close the keyboard if the keyboard is visible and the button is clicked a second time
+$('#open-keyboard').click(function () {
+    var kb = $('#keyboard').getkeyboard();
     if ( kb.isOpen ) {
         kb.close();
     } else {

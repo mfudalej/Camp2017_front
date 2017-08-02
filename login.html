@@ -7,79 +7,88 @@
     <title>Login site</title>
     <link rel="stylesheet" href="css/app.css">
 
-    <!-- jQuery -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!-- keyboard widget css -->
+    <link href="node_modules/virtual-keyboard/dist/css/keyboard.min.css" rel="stylesheet">
+    <link href="node_modules/virtual-keyboard/dist/css/keyboard-previewkeyset.min.css" rel="stylesheet">
 
-    <!-- jQuery UI position utility (optional, if you position the keyboard yourself) -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-
-    <!-- keyboard widget css & script -->
-    <link href="css/keyboard.css" rel="stylesheet">
-    <script src="js/jquery.keyboard.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="hide-for-small-only medium-3 columns">
-            <!--logo-->
-            <div class="animation">
-                <a href="#">
-                    <span class="hover-el"><img class="logo-img" src="img/logo.png" alt=""></span>
-                    <div class="hoverBtn"></div>
-                    <div class="hoverBtn-bottom"></div>
-                </a>
-            </div>
-        </div>
-        <div class="small-12 medium-6 columns">
-            <!--main section-->
-            <div class="main-content">
-                <h1 class="login-header">Login</h1>
-                <p class="login-paragraph">Aby zaimportować dane zaloguj się do swojego banku.</p>
-                <form class="login-form" action="#">
-                    <div class="avatar">
-                        <!--<img class="avatar-img" src="#" alt="avatar">-->
-                    </div>
-                    <div class="username">
-                        <p class="id">132265798</p>
-                        <button class="button reset-username" type="reset">&#10006;</button>
-                    </div>
-                    <div class="password">
-                        <input id="password" class="password-input" type="password"  title="password">
-                        <a href="#" id="'password-opener" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
-                    </div>
-                    <div class="button-row">
-                        <button class="button login-button button-select-other">Select other</button>
-                        <button class="button login-button button-go">Go</button>
-                    </div>
-                </form>
-            </div>
-            <!--navigation-->
-            <nav class="bottom-navigation">
-                <div class="row align-justify">
-                    <div class="small-10 column">
-                        <div class="main-menu">
-                            <ul class="menu">
-                                <li><a href="#">Security</a></li>
-                                <li><a href="#">Logging in</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="small-2 column">
-                        <div class="socials-list">
-                            <ul class="socials">
-                                <li><a href="#"><span class="icon-facebook"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
+<div class="background">
+    <div class="container">
+        <div class="row">
+            <div class="hide-for-small-only medium-3 columns">
+                <!--logo-->
+                <div class="animation">
+                    <a href="#">
+                        <span class="hover-el"><img class="logo-img" src="img/logo.png" alt=""></span>
+                        <div class="hoverBtn"></div>
+                        <div class="hoverBtn-bottom"></div>
+                    </a>
                 </div>
-            </nav>
+            </div>
+            <div class="small-12 medium-6 columns">
+                <!--main section-->
+                <div class="main-content">
+                    <h1 class="login-header">Login</h1>
+                    <p class="login-paragraph">Aby zaimportować dane zaloguj się do swojego banku.</p>
+                    <form class="login-form" action="#">
+                        <div class="avatar">
+                            <!--<img class="avatar-img" src="#" alt="avatar">-->
+                        </div>
+                        <div class="username">
+                            <p class="id">132265798</p>
+                            <button class="button reset-username" type="reset">&#10006;</button>
+                        </div>
+                        <div class="password">
+                            <input id="keyboard" class="password-input" type="password"  title="password">
+                            <a href="#" id="open-keyboard" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
+                        </div>
+                        <div class="button-row">
+                            <button class="button login-button button-select-other">Select other</button>
+                            <button class="button login-button button-go">Go</button>
+                        </div>
+                    </form>
+                </div>
+                <!--navigation-->
+                <nav class="bottom-navigation">
+                    <div class="row align-justify">
+                        <div class="small-10 column">
+                            <div class="main-menu">
+                                <ul class="menu">
+                                    <li><a href="#">Security</a></li>
+                                    <li><a href="#">Logging in</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="small-2 column">
+                            <div class="socials-list">
+                                <ul class="socials">
+                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
     </div>
 </div>
-<script src="bower_components/jquery/dist/jquery.js"></script>
+
+<!-- jQuery -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<!--keyboard widget-->
+<script src="node_modules/virtual-keyboard/dist/js/jquery.keyboard.min.js"></script>
+<script src="node_modules/virtual-keyboard/dist/languages/pl.min.js"></script>
+<script src="node_modules/virtual-keyboard/dist/layouts/polish.min.js"></script>
+<script src="node_modules/virtual-keyboard/dist/js/jquery.keyboard.extension-all.min.js"></script>
+<!--foundation-->
+<!--<script src="bower_components/jquery/dist/jquery.js"></script>-->
 <script src="bower_components/what-input/dist/what-input.js"></script>
 <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+<!--my scripts-->
 <script src="js/app.js"></script>
 </body>
 </html>
