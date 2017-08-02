@@ -6,13 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login site</title>
     <link rel="stylesheet" href="css/app.css">
+
+    <!-- jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- jQuery UI position utility (optional, if you position the keyboard yourself) -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+
+    <!-- keyboard widget css & script -->
+    <link href="css/keyboard.css" rel="stylesheet">
+    <script src="js/jquery.keyboard.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
         <div class="hide-for-small-only medium-3 columns">
             <!--logo-->
-            <div class="logo">
+            <div class="animation">
                 <a href="#">
                     <span class="hover-el"><img class="logo-img" src="img/logo.png" alt=""></span>
                     <div class="hoverBtn"></div>
@@ -34,8 +44,8 @@
                         <button class="button reset-username" type="reset">&#10006;</button>
                     </div>
                     <div class="password">
-                        <input class="password-input" type="password"  title="password">
-                        <a href="#" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
+                        <input id="password" class="password-input" type="password"  title="password">
+                        <a href="#" id="'password-opener" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
                     </div>
                     <div class="button-row">
                         <button class="button login-button button-select-other">Select other</button>
