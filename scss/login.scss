@@ -119,6 +119,10 @@
         }
       }
 
+      .error {
+        border-color: red;
+      }
+
       .on-screen-keyboard {
         display: inline-block;
         height: 35px;
@@ -141,6 +145,17 @@
           margin-left: 10px;
         }
       }
+
+      .error-message {
+        display: inline-block;
+        color: $white;
+        font-family: 'roboto_condensed', sans-serif;
+        font-size: 12px;
+        background-image: url("../img/icon-warning.png");
+        background-position: 0 center;
+        background-repeat: no-repeat;
+        padding-left: 20px;
+      }
     }
 
     .button-row {
@@ -155,6 +170,7 @@
         height: 31px;
         border-radius: 2px;
         text-transform: uppercase;
+        line-height: 31px;
       }
 
       .button-select-other {
