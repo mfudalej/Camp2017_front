@@ -1,12 +1,9 @@
  .background {
    font-family: 'roboto_condensedlight', sans-serif;
-   background: url(../img/bg.jpg) no-repeat 50% 80% fixed;
+   background: url(../img/bg.jpg) no-repeat 50% 50% fixed;
    background-size: cover;
    height: auto;
-   min-height: 100%;
-   min-width: 674px;
-   position: fixed;
-   width: 100%;
+   min-height: 100vh;
  }
 
  .container {
@@ -44,7 +41,7 @@
   .login-form {
     border: solid 1px $soft-blue;
     border-radius: 4px;
-    height: 250px;
+    height: 275px;
     width: 80%;
     margin:  0 auto 90/606*100%;
     transition: $transition-default;
@@ -68,33 +65,110 @@
 
     .username {
       text-align: center;
-      width: 80%;
+      width: 100%;
+      margin: 0 auto;
       padding-top: 26/606*100%;
-      margin: auto;
+      height: 60px;
 
-      .id {
+      .id-box {
+        width: 409/546*100%;
         display: inline-block;
-        font-family: 'roboto_condensedbold', sans-serif;
-        font-size: 18px;
-        margin: 0;
-        width: auto;
+
+        .id-input {
+          display: inline-block;
+          width: 80%;
+          height: 35px;
+          padding: 0;
+          margin: 0;
+          border-radius: 3px;
+          border-top: solid 2px $ight-gray;
+          text-align: center;
+          transition: $transition-default;
+          float: left;
+
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          &:focus {
+            box-shadow: inset 0 0 15px $ight-gray;
+            border-color: $ight-gray;
+          }
+        }
+
+        .accept-id {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          padding: 0;
+          margin-top: 8px;
+          margin-left: 10px;
+          background-color: $soft-blue;
+          transition: $transition-default;
+
+          &:hover {
+            transform: rotate(360deg) scale(1.2);
+            background-color: limegreen;
+          }
+        }
       }
 
-      .reset-username {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
+      .on-screen-keyboard {
+        display: inline-block;
+        height: 35px;
         padding: 0;
-        margin-top: 10px;
-        margin-left: 10px;
-        background-color: $soft-blue;
+        margin: 0;
+        background-color: transparent;
         transition: $transition-default;
 
         &:hover {
-          transform: rotate(90deg) scale(1.2);
-          background-color: red;
+          transform: scale(1.2);
+        }
+
+        &:active {
+          color: darken($blue, 25%);
+        }
+
+        .icon-keyboard:before {
+          content: "\e900";
+          font-size: 30px;
+          margin-left: 10px;
         }
       }
+
+      .id-paragraph-box {
+        text-align: center;
+        margin: -25px auto 0;
+
+        .id-paragraph {
+          display: inline-block;
+          font-family: 'roboto_condensedbold', sans-serif;
+          font-size: 18px;
+          margin: 0;
+          width: auto;
+        }
+
+        .id-reset {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          padding: 0;
+          margin-top: 10px;
+          margin-left: 10px;
+          background-color: $soft-blue;
+          transition: $transition-default;
+
+          &:hover {
+            transform: rotate(90deg) scale(1.2);
+            background-color: red;
+          }
+        }
+      }
+
+
     }
 
     .password {
@@ -146,21 +220,37 @@
         }
       }
 
-      .error-message {
+      .password-error-msg {
         display: inline-block;
         color: $white;
         font-family: 'roboto_condensed', sans-serif;
         font-size: 12px;
         background-image: url("../img/icon-warning.png");
-        background-position: 0 center;
+        background-position: 5px center;
         background-repeat: no-repeat;
-        padding-left: 20px;
+        background-color: red;
+        border-radius: 5px;
+        padding: 5px 5px 5px 25px;
+        margin-top:10px;
+        margin-bottom: 5px;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          border-bottom: 20px red solid;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          position: absolute;
+          width: 20px;
+          top: -13px;
+          left: 108px;
+        }
       }
     }
 
     .button-row {
-      padding-top: 20px;
-      margin: auto;
+      margin-top: 45px;
 
       .login-button {
         padding: 0;

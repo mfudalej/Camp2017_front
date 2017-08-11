@@ -36,13 +36,20 @@
                             <!--<img class="avatar-img" src="#" alt="avatar">-->
                         </div>
                         <div class="username">
-                            <p class="id">132265798</p>
-                            <button class="button reset-username" type="reset">&#10006;</button>
+                            <div class="id-box">
+                                <input type="text" id="id-input" class="id-input" title="Login">
+                                <button class="button accept-id">&#10003;</button>
+                            </div>
+                            <a href="#" id="id-keyboard" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
+                            <div class="id-paragraph-box">
+                                <p class="id-paragraph hide" title="Login">132265798</p>
+                                <button class="button id-reset hide">&#10006;</button>
+                            </div>
                         </div>
                         <div class="password">
-                            <input id="keyboard" class="password-input" type="password"  title="Password" required>
-                            <a href="#" id="open-keyboard" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
-                            <span class="error-message hide">The password is incorrect.</span>
+                            <input id="password-input" class="password-input" type="password"  title="Password">
+                            <a href="#" id="password-keyboard" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
+                            <span class="password-error-msg hide">The password is incorrect.</span>
                         </div>
                         <div class="button-row">
                             <button class="button login-button button-select-other">Select other</button>
@@ -51,7 +58,7 @@
                     </form>
                 </div>
                 <!--navigation-->
-                <nav class="bottom-navigation">S
+                <nav class="bottom-navigation">
                     <div class="row align-justify">
                         <div class="small-10 column">
                             <div class="main-menu">
