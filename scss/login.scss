@@ -1,5 +1,5 @@
  .background {
-   font-family: 'roboto_condensedlight', sans-serif;
+   font-family: 'roboto_condensedlight', sans-serif; //czcionke mozesz wrzucic do body
    background: url(../img/bg.jpg) no-repeat 50% 80% fixed;
    background-size: cover;
    height: auto;
@@ -26,7 +26,7 @@
   margin: auto;
 
   .login-header {
-    font-family: 'roboto_condensedlight', sans-serif;
+    font-family: 'roboto_condensedlight', sans-serif; // przypisanie głównego kroju czcionki powinno byc w body zeby nie musieć powtarzać stylu
     font-size: 40px;
     font-weight: 200;
     line-height: 1.6;
@@ -56,7 +56,7 @@
     .avatar {
       height: 100px;
       width: 100px;
-      margin: -50px auto 0 auto;
+      margin: -50px auto 0 auto; // ujemny margines nie jest ładnym rozwiązaniem. Ustaw avatar absolutem
       background-color: $white;
       border-radius: 50%;
 
@@ -74,7 +74,7 @@
 
       .id {
         display: inline-block;
-        font-family: 'roboto_condensedbold', sans-serif;
+        font-family: 'roboto_condensedbold', sans-serif; // mozesz utworzyc mixin z czcionka roboto, roboto_bold i roboto_light. Będziesz miał mniej pisania :)
         font-size: 18px;
         margin: 0;
         width: auto;
@@ -92,7 +92,7 @@
 
         &:hover {
           transform: rotate(90deg) scale(1.2);
-          background-color: red;
+          background-color: red; // wrzuć kolorek do zmiennej
         }
       }
     }
@@ -109,7 +109,7 @@
         padding: 0;
         margin: 0;
         border-radius: 3px;
-        border-top: solid 2px $ight-gray;
+        border-top: solid 2px $ight-gray; //chyba miales na mysli $light-gray
         text-align: center;
         transition: $transition-default;
 
@@ -254,7 +254,7 @@
           color: darken($blue, 25%);
         }
 
-        .icon-facebook:before {
+        .icon-facebook:before { //wrzucilbym ten styl do oddzielnego pliku scss o nazwie icons.scss. Trzymałbym tam wszystkie klasy ikon, tak żeby można ich było użyc w całej aplikacji
           content: "\e901";
         }
       }
