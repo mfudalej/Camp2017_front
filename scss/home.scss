@@ -1,0 +1,36 @@
+header {
+
+  .title-bar {
+    justify-content: space-around;
+    background: #0BBED3;
+
+    .logo-user-box {
+      display: flex;
+      flex-direction: row;
+      .logo {
+      }
+    }
+
+    .user-account-box {
+      margin-left: 35px;
+
+      p {
+        font-size: 50px;
+        line-height: 1;
+        margin-bottom: 40px;
+
+      }
+
+      .user-buttons {
+        font-size: 30px;
+
+        li {
+
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
