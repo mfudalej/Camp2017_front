@@ -1,5 +1,8 @@
- .background {
-   font-family: 'roboto_condensedlight', sans-serif;
+body {
+  @include roboto_condensedlight;
+}
+
+.background {
    background: url(../img/bg.jpg) no-repeat 50% 50% fixed;
    background-size: cover;
    height: auto;
@@ -23,7 +26,7 @@
   margin: auto;
 
   .login-header {
-    font-family: 'roboto_condensedlight', sans-serif;
+    @include roboto_condensedlight;     // bez tego foundatnion nadpisuje font-family zadeklarowany w body??
     font-size: 40px;
     font-weight: 200;
     line-height: 1.6;
@@ -45,6 +48,7 @@
     width: 80%;
     margin:  0 auto 90/606*100%;
     transition: $transition-default;
+    position: relative;
 
     &:hover {
       border-color: $white;
@@ -53,98 +57,63 @@
     .avatar {
       height: 100px;
       width: 100px;
-      margin: -50px auto 0 auto;
       background-color: $white;
       border-radius: 50%;
-
-      //.avatar-img {
-      //  width: 100%;
-      //  height: 100%;
-      //}
+      position: absolute;
+      top: -50px;
+      right: 37%;
     }
 
     .username {
       text-align: center;
       width: 100%;
-      margin: 0 auto;
+      margin: 50px auto 0;
       padding-top: 26/606*100%;
       height: 60px;
 
-      .id-box {
+      .id-input {
+        display: inline-block;
         width: 409/546*100%;
-        display: inline-block;
-
-        .id-input {
-          display: inline-block;
-          width: 80%;
-          height: 35px;
-          padding: 0;
-          margin: 0;
-          border-radius: 3px;
-          border-top: solid 2px $ight-gray;
-          text-align: center;
-          transition: $transition-default;
-          float: left;
-
-          &::-webkit-inner-spin-button,
-          &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-          }
-
-          &:focus {
-            box-shadow: inset 0 0 15px $ight-gray;
-            border-color: $ight-gray;
-          }
-        }
-
-        .accept-id {
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          padding: 0;
-          margin-top: 8px;
-          margin-left: 10px;
-          background-color: $soft-blue;
-          transition: $transition-default;
-
-          &:hover {
-            transform: rotate(360deg) scale(1.2);
-            background-color: limegreen;
-          }
-        }
-      }
-
-      .on-screen-keyboard {
-        display: inline-block;
         height: 35px;
         padding: 0;
         margin: 0;
-        background-color: transparent;
-        transition: $transition-default;
+        border-radius: 3px;
+        border-top: solid 2px $light-gray;
+        text-align: center;
+        transition: $transition-default;;
 
-        &:hover {
-          transform: scale(1.2);
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset;
+
+          &:hover {
+            -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset;
+          }
+          &:focus {
+            -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset;
+          }
         }
 
-        &:active {
-          color: darken($blue, 25%);
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
         }
 
-        .icon-keyboard:before {
-          content: "\e900";
-          font-size: 30px;
-          margin-left: 10px;
+        &:focus {
+          box-shadow: inset 0 0 15px $light-gray;
+          border-color: $light-gray;
         }
       }
 
+      @include keyboard-button-styles;
+
       .id-paragraph-box {
         text-align: center;
-        margin: -25px auto 0;
+        margin: 0 auto;
 
         .id-paragraph {
+          @include roboto_condensedbold;
           display: inline-block;
-          font-family: 'roboto_condensedbold', sans-serif;
           font-size: 18px;
           margin: 0;
           width: auto;
@@ -163,12 +132,10 @@
 
           &:hover {
             transform: rotate(90deg) scale(1.2);
-            background-color: red;
+            background-color: $red;
           }
         }
       }
-
-
     }
 
     .password {
@@ -183,47 +150,26 @@
         padding: 0;
         margin: 0;
         border-radius: 3px;
-        border-top: solid 2px $ight-gray;
+        border-top: solid 2px $light-gray;
         text-align: center;
         transition: $transition-default;
+        background-clip: content-box;
 
         &:focus {
-          box-shadow: inset 0 0 15px $ight-gray;
-          border-color: $ight-gray;
+          box-shadow: inset 0 0 15px $light-gray;
+          border-color: $light-gray;
         }
       }
 
       .error {
         border-color: red;
       }
-
-      .on-screen-keyboard {
-        display: inline-block;
-        height: 35px;
-        padding: 0;
-        margin: 0;
-        background-color: transparent;
-        transition: $transition-default;
-
-        &:hover {
-          transform: scale(1.2);
-        }
-
-        &:active {
-          color: darken($blue, 25%);
-        }
-
-        .icon-keyboard:before {
-          content: "\e900";
-          font-size: 30px;
-          margin-left: 10px;
-        }
-      }
+      @include keyboard-button-styles;
 
       .password-error-msg {
+        @include roboto_condensedbold;
         display: inline-block;
         color: $white;
-        font-family: 'roboto_condensed', sans-serif;
         font-size: 12px;
         background-image: url("../img/icon-warning.png");
         background-position: 5px center;
@@ -243,8 +189,8 @@
           border-right: 15px solid transparent;
           position: absolute;
           width: 20px;
-          top: -13px;
-          left: 108px;
+          top: -12px;
+          left: 15px;
         }
       }
     }
@@ -252,18 +198,8 @@
     .button-row {
       margin-top: 45px;
 
-      .login-button {
-        padding: 0;
-        border: 0;
-        font-size: 15px;
-        width: 118px;
-        height: 31px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        line-height: 31px;
-      }
-
       .button-select-other {
+        @include login-button-styles;
         background-color: $blue;
 
         &:hover {
@@ -276,6 +212,7 @@
       }
 
       .button-go {
+        @include login-button-styles;
         color: $black;
         background-color: $white;
 
@@ -302,10 +239,10 @@
     li {
 
       a {
+        @include roboto_condensedbold;
         color: $white;
         text-transform: uppercase;
         font-size: 11px;
-        font-family: 'roboto_condensedbold', sans-serif;
         letter-spacing: 0.3px;
         padding: 10px 10px 10px 0;
 
@@ -342,10 +279,6 @@
 
         &:active {
           color: darken($blue, 25%);
-        }
-
-        .icon-facebook:before {
-          content: "\e901";
         }
       }
     }

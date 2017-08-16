@@ -1,14 +1,13 @@
 (function() {                                            // Funkcja IIFE (smowywołująca się).
-    var idInput        = document.getElementsByClassName('id-input')[0];              // Deklaracja zmiennych.
-    var idButton       = document.getElementsByClassName('accept-id')[0];
-    var idKeyboard     = document.getElementById('id-keyboard');
-    var idParagraph    = document.getElementsByClassName('id-paragraph')[0];
-    var idResetButton  = document.getElementsByClassName('id-reset')[0];
-    var goButton       = document.getElementsByClassName('button-go')[0];
-    var passInput      = document.getElementsByClassName('password-input')[0];
-    var errorMsg       = document.getElementsByClassName('password-error-msg')[0];
-    var resetButton    = document.getElementsByClassName('button-select-other')[0];
-    var buttonsRow     = document.getElementsByClassName('button-row')[0];
+    const idInput        = document.getElementsByClassName('id-input')[0],              // Deklaracja zmiennych.
+          idKeyboard     = document.getElementById('id-keyboard'),
+          idParagraph    = document.getElementsByClassName('id-paragraph')[0],
+          idResetButton  = document.getElementsByClassName('id-reset')[0],
+          goButton       = document.getElementsByClassName('button-go')[0],
+          passInput      = document.getElementsByClassName('password-input')[0],
+          errorMsg       = document.getElementsByClassName('password-error-msg')[0],
+          resetButton    = document.getElementsByClassName('button-select-other')[0],
+          buttonsRow     = document.getElementsByClassName('button-row')[0];
 
     function resetId() {
         idParagraph.innerHTML = "";
@@ -16,7 +15,6 @@
         idParagraph.classList.add('hide');
         idResetButton.classList.add('hide');
         idInput.classList.remove('hide');
-        idButton.classList.remove('hide');
         idKeyboard.classList.remove('hide');
     }
 
@@ -35,7 +33,6 @@
     idInput.addEventListener('blur', function() {         // Obserwator zdarzenia dla przycisku zatwierdzającego Id.
         if (idInput.value) {                              // Jeżeli pole Id jest wypełnione.
             idInput.classList.add('hide');
-            idButton.classList.add('hide');
             idParagraph.innerHTML = idInput.value;
             idParagraph.classList.remove('hide');
             idResetButton.classList.remove('hide');
@@ -64,16 +61,27 @@
                 showPasswordError();                    // Wyświetlenie komunikatu.
             },
             success: function(response) {               // Jeśli hasło i login są poprawne.
-                window.location = goButton.href;        // Przejście na kolejną stronę.
+                window.location.href = 'index.html'     // Przejście na kolejną stronę.
             }
         });
-   });
+    });
 
-    passInput.addEventListener('blur', function() {      // Obserwator zdarzenia blur dla formularza hasła.
-        if (!passInput.value) {                          // Jeśli pole hasła jest pute,
-            passwordErrorReset();                        // Usunięcie komunikatu o nieprawidłowym haśle.
+    passInput.addEventListener('focus', function() {     // Obserwator zdarzenia blur dla formularza hasła.
+        passwordErrorReset();                            // Usunięcie komunikatu o nieprawidłowym haśle.
+    });
+
+    idInput.addEventListener('keyup', function(e) {
+        if (e.which === 13 || e.keyCode === 13) {
+            passInput.focus();
         }
-   });
+    });
+
+    passInput.addEventListener('keyup', function(e) {
+        if ( e.which === 13 || e.keyCode === 13 ) {
+            goButton.click();
+        }
+    });
+
 
     resetButton.addEventListener('click', function () {  // Obserwator zdarzenia dla przycisku 'Select other'.
         resetId();                                       // Reset formularza Id.
