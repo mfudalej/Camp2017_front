@@ -66,6 +66,12 @@ $size-radius: 5px;
     animation-direction: normal;
   }
 
+  a:focus:not(:hover) {
+    .hover-el {
+      border: yellow 2px solid;
+    }
+  }
+
   .hover-el {
     position: absolute;
     top: 0;

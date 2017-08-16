@@ -10,6 +10,7 @@ $('#password-input').keyboard({
         language: 'pl',
         openOn : null,
         layout: 'polish-qwerty',
+        enterNavigation: false;
     });
 
 $('#password-keyboard').click(function () {
@@ -28,6 +29,7 @@ $('#id-input').keyboard({
         accepted : function () {
             $('#id-input').focus();
         }
+        enterNavigation: false;
     });
 
 $('#id-keyboard').click(function () {
