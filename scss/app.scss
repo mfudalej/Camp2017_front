@@ -55,6 +55,8 @@
 @include motion-ui-animations;
 
 @import "variables";
+@import "mixins";
+@import "icons";
 @import "fonts";
+@import "logo-border-animation";
 @import "login.scss";
-@import "border-animation";

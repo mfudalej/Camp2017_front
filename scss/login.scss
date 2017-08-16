@@ -1,12 +1,12 @@
- .background {
-   font-family: 'roboto_condensedlight', sans-serif; //czcionke mozesz wrzucic do body
-   background: url(../img/bg.jpg) no-repeat 50% 80% fixed;
+body {
+  @include roboto_condensedlight;
+}
+
+.background {
+   background: url(../img/bg.jpg) no-repeat 50% 50% fixed;
    background-size: cover;
    height: auto;
-   min-height: 100%;
-   min-width: 674px;
-   position: fixed;
-   width: 100%;
+   min-height: 100vh;
  }
 
  .container {
@@ -26,7 +26,7 @@
   margin: auto;
 
   .login-header {
-    font-family: 'roboto_condensedlight', sans-serif; // przypisanie głównego kroju czcionki powinno byc w body zeby nie musieć powtarzać stylu
+    @include roboto_condensedlight;     // bez tego foundatnion nadpisuje font-family zadeklarowany w body??
     font-size: 40px;
     font-weight: 200;
     line-height: 1.6;
@@ -44,10 +44,11 @@
   .login-form {
     border: solid 1px $soft-blue;
     border-radius: 4px;
-    height: 250px;
+    height: 275px;
     width: 80%;
     margin:  0 auto 90/606*100%;
     transition: $transition-default;
+    position: relative;
 
     &:hover {
       border-color: $white;
@@ -56,43 +57,83 @@
     .avatar {
       height: 100px;
       width: 100px;
-      margin: -50px auto 0 auto; // ujemny margines nie jest ładnym rozwiązaniem. Ustaw avatar absolutem
       background-color: $white;
       border-radius: 50%;
-
-      //.avatar-img {
-      //  width: 100%;
-      //  height: 100%;
-      //}
+      position: absolute;
+      top: -50px;
+      right: 40%;
     }
 
     .username {
       text-align: center;
-      width: 80%;
+      width: 100%;
+      margin: 50px auto 0;
       padding-top: 26/606*100%;
-      margin: auto;
+      height: 60px;
 
-      .id {
+      .id-input {
         display: inline-block;
-        font-family: 'roboto_condensedbold', sans-serif; // mozesz utworzyc mixin z czcionka roboto, roboto_bold i roboto_light. Będziesz miał mniej pisania :)
-        font-size: 18px;
+        width: 409/546*100%;
+        height: 35px;
+        padding: 0;
         margin: 0;
-        width: auto;
+        border-radius: 3px;
+        border-top: solid 2px $light-gray;
+        text-align: center;
+        transition: $transition-default;;
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset;
+
+          &:hover {
+            -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset;
+          }
+          &:focus {
+            -webkit-box-shadow: 0 0 0 1000px #f9f9f9 inset;
+          }
+        }
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &:focus {
+          box-shadow: inset 0 0 15px $light-gray;
+          border-color: $light-gray;
+        }
       }
 
-      .reset-username {
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        padding: 0;
-        margin-top: 10px;
-        margin-left: 10px;
-        background-color: $soft-blue;
-        transition: $transition-default;
+      @include keyboard-button-styles;
 
-        &:hover {
-          transform: rotate(90deg) scale(1.2);
-          background-color: red; // wrzuć kolorek do zmiennej
+      .id-paragraph-box {
+        text-align: center;
+        margin: 0 auto;
+
+        .id-paragraph {
+          @include roboto_condensedbold;
+          display: inline-block;
+          font-size: 18px;
+          margin: 0;
+          width: auto;
+        }
+
+        .id-reset {
+          display: inline-block;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          padding: 0;
+          margin-top: 10px;
+          margin-left: 10px;
+          background-color: $soft-blue;
+          transition: $transition-default;
+
+          &:hover {
+            transform: rotate(90deg) scale(1.2);
+            background-color: $red;
+          }
         }
       }
     }
@@ -109,13 +150,14 @@
         padding: 0;
         margin: 0;
         border-radius: 3px;
-        border-top: solid 2px $ight-gray; //chyba miales na mysli $light-gray
+        border-top: solid 2px $light-gray;
         text-align: center;
         transition: $transition-default;
+        background-clip: content-box;
 
         &:focus {
-          box-shadow: inset 0 0 15px $ight-gray;
-          border-color: $ight-gray;
+          box-shadow: inset 0 0 15px $light-gray;
+          border-color: $light-gray;
         }
       }
 
@@ -123,57 +165,42 @@
         border-color: red;
       }
 
-      .on-screen-keyboard {
-        display: inline-block;
-        height: 35px;
-        padding: 0;
-        margin: 0;
-        background-color: transparent;
-        transition: $transition-default;
+      @include keyboard-button-styles;
 
-        &:hover {
-          transform: scale(1.2);
-        }
-
-        &:active {
-          color: darken($blue, 25%);
-        }
-
-        .icon-keyboard:before {
-          content: "\e900";
-          font-size: 30px;
-          margin-left: 10px;
-        }
-      }
-
-      .error-message {
+      .password-error-msg {
+        @include roboto_condensedbold;
         display: inline-block;
         color: $white;
-        font-family: 'roboto_condensed', sans-serif;
         font-size: 12px;
         background-image: url("../img/icon-warning.png");
-        background-position: 0 center;
+        background-position: 5px center;
         background-repeat: no-repeat;
-        padding-left: 20px;
+        background-color: red;
+        border-radius: 5px;
+        padding: 5px 5px 5px 25px;
+        margin-top:10px;
+        margin-bottom: 5px;
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          border-bottom: 20px red solid;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          position: absolute;
+          width: 20px;
+          top: -12px;
+          left: 15px;
+        }
       }
     }
 
     .button-row {
-      padding-top: 20px;
-      margin: auto;
-
-      .login-button {
-        padding: 0;
-        border: 0;
-        font-size: 15px;
-        width: 118px;
-        height: 31px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        line-height: 31px;
-      }
+      margin-top: 45px;
 
       .button-select-other {
+        @include login-button-styles;
         background-color: $blue;
 
         &:hover {
@@ -186,6 +213,7 @@
       }
 
       .button-go {
+        @include login-button-styles;
         color: $black;
         background-color: $white;
 
@@ -212,10 +240,10 @@
     li {
 
       a {
+        @include roboto_condensedbold;
         color: $white;
         text-transform: uppercase;
         font-size: 11px;
-        font-family: 'roboto_condensedbold', sans-serif;
         letter-spacing: 0.3px;
         padding: 10px 10px 10px 0;
 
@@ -252,10 +280,6 @@
 
         &:active {
           color: darken($blue, 25%);
-        }
-
-        .icon-facebook:before { //wrzucilbym ten styl do oddzielnego pliku scss o nazwie icons.scss. Trzymałbym tam wszystkie klasy ikon, tak żeby można ich było użyc w całej aplikacji
-          content: "\e901";
         }
       }
     }

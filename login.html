@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login site</title>
     <link rel="stylesheet" href="css/app.css">
-
     <!-- keyboard widget css -->
     <link href="node_modules/virtual-keyboard/dist/css/keyboard.min.css" rel="stylesheet">
     <link href="node_modules/virtual-keyboard/dist/css/keyboard-previewkeyset.min.css" rel="stylesheet">
-
+    <!-- jQuery css-->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
 <div class="background">
@@ -20,38 +20,50 @@
                 <!--logo-->
                 <div class="logo">
                     <a href="#">
-                        <span class="hover-el"><img class="logo-img" src="img/logo.png" alt=""></span>
+                        <span class="hover-el"><img class="logo-img" src="img/logo.png" alt="efi3 logo"></span>
                         <div class="hoverBtn"></div>
                         <div class="hoverBtn-bottom"></div>
+                        <span class="show-for-sr">Go to homepage.</span>
                     </a>
                 </div>
             </div>
             <div class="small-12 medium-6 columns">
                 <!--main section-->
-                <div class="main-content">
+                <main class="main-content">
                     <h1 class="login-header">Login</h1>
                     <p class="login-paragraph">Aby zaimportować dane zaloguj się do swojego banku.</p>
                     <form class="login-form" action="#">
-                        <div class="avatar">
-                            <!--<img class="avatar-img" src="#" alt="avatar">-->
-                        </div>
+                        <div class="avatar" title="Avatar"></div>
                         <div class="username">
-                            <p class="id">132265798</p>
-                            <button class="button reset-username" type="reset">&#10006;</button>
+                            <label for="id-input" class="show-for-sr">Login</label>
+                            <input id="id-input" class="id-input" type="text" title="Login" placeholder="Login">
+                            <button id="id-keyboard" class="button on-screen-keyboard" aria-hidden="true">
+                                <span class="icon-keyboard"></span>
+                            </button>
+                            <div class="id-paragraph-box">
+                                <p class="id-paragraph hide" title="Login"></p>
+                                <button class="button id-reset hide">
+                                    <span aria-hidden="true">&#10006;</span>
+                                    <span class="show-for-sr">Reset id</span>
+                                </button>
+                            </div>
                         </div>
                         <div class="password">
-                            <input id="keyboard" class="password-input" type="password"  title="Password" required>
-                            <a href="#" id="open-keyboard" class="button on-screen-keyboard"><span class="icon-keyboard"></span></a>
-                            <span class="error-message hide">The password is incorrect.</span>
+                            <label for="password-input" class="show-for-sr">Password</label>
+                            <input id="password-input" class="password-input" type="password" title="Password" placeholder="Password">
+                            <button id="password-keyboard" class="button on-screen-keyboard" aria-hidden="true">
+                                <span class="icon-keyboard"></span>
+                            </button>
+                            <span class="password-error-msg hide">The password is incorrect.</span>
                         </div>
                         <div class="button-row">
-                            <button class="button login-button button-select-other">Select other</button>
-                            <a href="index.html" class="button login-button button-go" type="submit">Go</a>
+                            <button class="button button-select-other">Select other</button>
+                            <button class="button button-go" type="submit">Go</button>
                         </div>
                     </form>
-                </div>
+                </main>
                 <!--navigation-->
-                <nav class="bottom-navigation">S
+                <nav class="bottom-navigation">
                     <div class="row align-justify">
                         <div class="small-10 column">
                             <div class="main-menu">
@@ -65,7 +77,12 @@
                         <div class="small-2 column">
                             <div class="socials-list">
                                 <ul class="socials">
-                                    <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="icon-facebook"></span>
+                                            <span class="show-for-sr">Facebook</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -75,10 +92,8 @@
         </div>
     </div>
 </div>
-
 <!-- jQuery -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 <!--keyboard widget-->
 <script src="node_modules/virtual-keyboard/dist/js/jquery.keyboard.min.js"></script>
@@ -86,7 +101,6 @@
 <script src="node_modules/virtual-keyboard/dist/layouts/polish.min.js"></script>
 <script src="node_modules/virtual-keyboard/dist/js/jquery.keyboard.extension-all.min.js"></script>
 <!--foundation-->
-<!--<script src="bower_components/jquery/dist/jquery.js"></script>-->
 <script src="bower_components/what-input/dist/what-input.js"></script>
 <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
 <!--my scripts-->

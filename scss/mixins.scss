@@ -1,0 +1,49 @@
+//Fonts-famiy:
+@mixin roboto_condensedlight {
+  font-family: 'roboto_condensedlight', sans-serif;
+}
+@mixin roboto_condensedbold {
+  font-family: 'roboto_condensedbold', sans-serif;
+}
+
+//Buttons
+@mixin keyboard-button-styles {
+  .on-screen-keyboard {
+    display: inline-block;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    transition: $transition-default;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      color: darken($blue, 25%);
+    }
+
+    &:focus:not(:hover) {
+      border: yellow 2px solid;
+    }
+
+    .icon-keyboard:before {
+      content: "\e900";
+      font-size: 30px;
+      margin-left: 10px;
+    }
+  }
+}
+@mixin login-button-styles {
+  padding: 0;
+  border: 0;
+  font-size: 15px;
+  width: 118px;
+  height: 31px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  line-height: 31px;
+}
+
+
