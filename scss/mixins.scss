@@ -6,6 +6,10 @@
   font-family: 'roboto_condensedbold', sans-serif;
 }
 
+@mixin font($type: 'light') {
+  font-family: 'roboto_condensed'+($type), sans-serif;
+}
+
 //Buttons
 @mixin keyboard-button-styles {
   .on-screen-keyboard {

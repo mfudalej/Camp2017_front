@@ -8,96 +8,151 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+<!--header-->
 <header data-sticky-container>
     <div class="title-bar" data-sticky data-options="marginTop:0;">
-        <div class="logo-user-box">
-            <div class="logo"></div>
-            <div class="logo"></div>
-            <div class="user-account-box">
-                <p>Jan Kowalski</p>
-                <ul class="user-buttons menu">
-                    <li><a href=""><span class="icon-envelope"></span></a></li>
-                    <li><a href=""><span class="icon-cog"></span></a></li>
+        <div class="container">
+            <div class="logo-user-box">
+                <div class="logo">
+                    <a href="#">
+                        <span class="hover-el"><img class="logo-img" src="img/logo.png" alt="efi3 logo"></span>
+                        <span class="hoverBtn"></span>
+                        <span class="hoverBtn-bottom"></span>
+                        <span class="show-for-sr">Go to homepage.</span>
+                    </a>
+                </div>
+                <div class="avatar">
+                    <img src="img/avatar.jpg" alt="">
+                </div>
+                <div class="user-account-box">
+                    <p>Jan Kowalski</p>
+                    <ul class="user-buttons menu">
+                        <li><a href=""><span class="icon-envelope"></span></a></li>
+                        <li><a href=""><span class="icon-cog"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav-box">
+                <ul class="navigation menu">
+                    <li><a href=""><span class="img-box"><img src="img/home-home.png" alt=""></span><p>home</p></a></li>
+                    <li><a href=""><span class="img-box"><img src="img/home-analyse.png" alt=""></span><p>analyse</p></a></li>
+                    <li><a href=""><span class="img-box"><img src="img/home-plan.png" alt=""></span><p>plan</p></a></li>
+                    <li><a href=""><span class="img-box"><img src="img/home-earn.png" alt=""></span><p>earn</p></a></li>
+                </ul>
+            </div>
+            <div class="search-logoff-box">
+                <ul class="search-logoff-buttons menu">
+                    <li><a href="" class="search-button"><span class="icon-search"></span></a></li>
+                    <li><a href="" class="logoff-button"><span class="icon-switch"></span></a></li>
                 </ul>
             </div>
         </div>
-        <div class="nav-box">
-            <ul class="navigation menu">
-                <li><a href="">home</a></li>
-                <li><a href="">analise</a></li>
-                <li><a href="">plan</a></li>
-                <li><a href="">earn</a></li>
-            </ul>
-        </div>
-        <div class="search-logoff-box">
-            <ul class="search-logoff-buttons menu">
-                <li><a href="" class="search-button"><span class="icon-search"></span></a></li>
-                <li><a href="" class="logoff-button"><span class="icon-switch"></span></a></li>
-            </ul>
-        </div>
     </div>
 </header>
-<div class="container">
-    <div class='column row' id='root'>
-        <h3 class='text-center'>Creating a sticky Nav Menu with Title Bar, DropdownMenu, and Sticky!</h3>
-        <div class='callout primary'>
-            <p class='lead'>It's important to note that sticky requires a bit of developer input to work properly. To create a sticky nav bar like this one, set the nav container width to 100%. It's also important to set the minimum top-anchor point to 1px, otherwise it'll never stick!</p>
-            <p>Here we're also having a bit of fun with transitions using event triggers from the sticky plugin. When the nav bar becomes sticky, it emits <code>sticky.zf.stuckto:top</code>, which we're listening to. Then we're adding a class to reduce the height and top padding of our nav bar.</p>
+<!--/header-->
+<!--main-->
+<main>
+    <div class="container">
+        <div class="main-header-row">
+            <div class="header-box">
+                <h1>Finance life stream</h1>
+            </div>
+            <div class="buttons-box">
+                <button class="add-button button">Add</button>
+                <button class="bank-button button">Bank</button>
+                <button class="payment-button button">Payment</button>
+            </div>
         </div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, temporibus a reprehenderit, adipisci expedita nam odio neque alias eligendi, consectetur sapiente dicta tenetur perspiciatis. Aspernatur modi provident obcaecati impedit dignissimos.
-        </p>
+        <div class="finance-info-row">
+            <div class="balance-box">
+                <h2>Balance<br><b>7 200,34</b> PLN</h2>
+            </div>
+            <div class="available-box">
+                <h2>Available funds<br><b>7 200,34</b> PLN</h2>
+            </div>
+            <div class="scheduled-payments-box">
+                <h2>Scheduled payments<br><b>2 200,34</b> PLN</h2>
+                <button class="button fast-pay-button">Fast pay</button>
+            </div>
+            <div class="switch-box">
+                <p>Accounts analysis</p>
+                <div class="switch large">
+                    <input class="switch-input" id="yes-no" type="checkbox" name="exampleSwitch">
+                    <label class="switch-paddle" for="yes-no">
+                        <span class="show-for-sr">Accounts analysis</span>
+                        <span class="switch-inactive" aria-hidden="true">ON</span>
+                        <span class="switch-active" aria-hidden="true">OFF</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="graph-box">
+            <img src="img/graph.jpg" alt="">
+        </div>
+        <div class="products-history-row">
+            <div class="products-box">
+                <h3>Products</h3>
+                <div class="product1"></div>
+                <div class="product2"></div>
+                <div class="product3"></div>
+                <div class="product4"></div>
+                <div class="product5"></div>
+            </div>
+            <div class="history-box">
+                <h3>History</h3>
+                <div class="history-list-box">
+                    <ul class="history-list">
+                        <li>
+                            <span class="date">29.06</span>
+                            <span class="info-box">
+                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
+                                <span class="info-type">Gas</span><span class="icon-bottom"></span>
+                            </span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                        <li>
+                            <span class="date">29.06</span>
+                            <span class="info-box">
+                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
+                                <span class="info-type">Gas</span><span class="icon-bottom"></span>
+                            </span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                        <li>
+                            <span class="date">28.06</span>
+                            <span class="info-box">
+                                <span class="info-text">ATM withdrawal Cracow Bracka street...</span>
+                                <span class="info-type">Cash</span><span class="icon-bottom"></span>
+                            </span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                        <li>
+                            <span class="date">29.06 </span>
+                            <span class="info">Gas station Shell, Warsaw Woloska street... Gas</span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                        <li>
+                            <span class="date">29.06 </span>
+                            <span class="info">Gas station Shell, Warsaw Woloska street... Gas</span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                        <li>
+                            <span class="date">29.06 </span>
+                            <span class="info">Gas station Shell, Warsaw Woloska street... Gas</span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                        <li>
+                            <span class="date">29.06 </span>
+                            <span class="info">Gas station Shell, Warsaw Woloska street... Gas</span>
+                            <span class="price"><b>-100.00</b> PLN</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</main>
+<!--/main-->
 
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/what-input/dist/what-input.js"></script>
