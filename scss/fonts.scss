@@ -50,3 +50,8 @@
   font-weight: normal;
   font-style: normal;
 }
+
+.bold-font {
+  @include font('bold');
+}
+
