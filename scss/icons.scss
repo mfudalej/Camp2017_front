@@ -1,3 +1,15 @@
+.icon-funds:before {
+  content: "\e905";
+}
+.icon-accounts:before {
+  content: "\e906";
+}
+.icon-deposits:before {
+  content: "\e907";
+}
+.icon-wallet:before {
+  content: "\e908";
+}
 .icon-envelope:before {
   content: "\e902";
 }
@@ -10,15 +22,15 @@
 .icon-cog:before {
   content: "\e994";
 }
+.icon-bankloans:before {
+  content: "\ea04";
+}
+.icon-bottom:before {
+  content: "\ea50";
+}
 .icon-keyboard:before {
   content: "\e900";
 }
 .icon-facebook:before {
   content: "\e901";
-}
-.icon-facebook-f:before {
-  content: "\e901";
-}
-.icon-bottom:before {
-  content: "\ea50";
 }

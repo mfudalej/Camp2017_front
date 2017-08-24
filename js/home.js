@@ -1,6 +1,7 @@
+// Summary
+
 const getSummary = (endpoint, containers) => {
 
-// (function(){
     const balance = document.querySelector(containers.balance);
     const funds = document.querySelector(containers.funds);
     const payments = document.querySelector(containers.payments);
@@ -14,7 +15,6 @@ const getSummary = (endpoint, containers) => {
         funds.innerText = fundsValue;
         payments.innerText = paymentsValue;
     });
-// }());
 };
 
 const containers = {
@@ -27,115 +27,85 @@ getSummary("data/summary", containers);
 
 // Products
 
-
-
-// const getProducts = () => {
-//
-//     const type = document.querySelector(productsContainers.type);
-//     const amount = document.querySelector(productsContainers.amount);
-//     const currency = document.querySelector(productsContainers.currency);
-//
-//
-//     $.get("https://efigence-camp.herokuapp.com/api/data/products" + endpoint, data => {
-//         const typeValue = data.content[0].value;
-//         const amountValue = data.content[0].amount;
-//         const paymentsCurrency = data.content[0].currency;
-//
-//         balance.innerText = balanceValue;
-//         amount.innerText = amountValue;
-//         currency.innerText = paymentsCurrency;
-//     });
-// };
-//
-// const productsContainers = {
-//     type: '#type',
-//     amount: '#amount',
-//     currency: '#currency'
-// };
-
 const getProducts = () => {
-
-    const productsContainer = document.querySelector('.products-box');
 
     $.get("https://efigence-camp.herokuapp.com/api/data/products", data => {
 
         const productsList = data.content;
-        const productTemplate = (data) => {
 
-            let icon;
 
-            switch(data.type) {
-                case "Wallet":
-                    icon = "ikonka portfela";
-                break;
-                case "Deposit":
-                    icon = "ikonka depozytu";
-                break;
-                case "Accounts":
-                    icon = "ikonka Kont";
-                break;
-                case "Founds":
-                    icon = "ikonka środków";
-                break;
-                default:
-                    icon = "ikonka domyślna";
-            }
 
-            return `
-            <div class="product${index}">
+
+        productsList.forEach((element, index) => {
+            let iconName = element.type.toLowerCase().replace(/\s/g, '');
+
+            const productTemplate = `
+                <div class="product${index}">
                     <div class="img-box">
-                        <img src="img/wallet.png" alt="">${icon}
+                        <span class="icon-${iconName}"></span>
                     </div>
                     <div class="info-box">
                         <ul class="info">
                             <li id ="type">${element.type}</li>
-                            <p><span id="amount"></span>${element.amount}<span id="currency"></span>${element.currency}</li>
+                            <p><span id="amount"></span>${element.amount}<span id="currency"></span> ${element.currency}</li>
                         </ul>
                     </div>
                 </div>`;
-        };
 
-        productsList.forEach((element, index) => {
-            console.log(`Iteracja: ${index}`, element);
-
-
-            // productsContainer.innerHTML += productTemplate;
-            $(".products-box").append('beforeend', productTemplate);
+            $(".products-box").append(productTemplate);
         });
-
-
-
-        // console.log(data.content);
-        //
-        // for (let i = 0, l = data.content.length; i < l; i ++) {
-        //     console.log(i, data.content[i])
-        //
-        // }
     });
-
-};
-
-const productsContainers = {
-    type: '#type',
-    amount: '#amount',
-    currency: '#currency'
 };
 
 getProducts();
 
-// <ul>
-//     <li>Type: ${element.type}</li>
-//     <li>Amount: ${element.amoint} ${element.currency}</li>
-// </ul>
-// const productTemplate = `
-//                 <div class="product${index}">
-//                     <div class="img-box">
-//                         <img src="img/wallet.png" alt="">
-//                     </div>
-//                     <div class="info-box">
-//                         <ul class="info">
-//                             <li id ="type">${element.type}</li>
-//                             <p><span id="amount"></span>${element.amount}<span id="currency"></span>${element.currency}</li>
-//                         </ul>
-//                     </div>
-//                 </div>`;
+// History
+
+const getHistory = () => {
+
+    $.get("https://efigence-camp.herokuapp.com/api/data/history", data => {
+
+        const historyList = data.content;
+
+        historyList.forEach((element, index) => {
+
+            let historyAmount = element.amount;
+            if (element.status === 'outcome') {
+                historyAmount = '-'+ historyAmount;
+            }
+
+            let historyDate = element.date.slice(-5);
+
+            const historyTemplate = `
+                <li>
+                     <span class="date">${historyDate}</span>
+                     <span class="info-box">
+                         <span class="info-text">${element.description}</span>
+                         <select class="info-type" name="type">
+                             <option value="${element.category}">${element.category}</option> 
+                             <option value="volvo">Gas</option>
+                             <option value="saab">Cash</option>
+                             <option value="fiat">Salary</option>
+                             <option value="audi">Food</option>
+                             <option value="audi">Fun</option>
+                         </select>
+                     </span>
+                     <span class="price ${element.status}"><span class="bold-font">${historyAmount}</span> ${element.currency}</span>
+                 </li>`;
+
+            $(".history-list").append(historyTemplate);
+        });
+    });
+};
+
+getHistory();
+
+// SWITCH BUTTON
+
+$('.switch-paddle').click(function() {
+
+    $('.img').toggleClass('hide');
+    $('.chart-box').toggleClass('hide');
+
+
+});
