@@ -35,14 +35,14 @@
                     </ul>
                 </div>
             </div>
-            <div class="nav-box">
+            <nav class="nav-box">
                 <ul class="navigation menu">
                     <li><a href=""><span class="img-box"><img src="img/home-home.png" alt=""></span><p>home</p></a></li>
                     <li><a href=""><span class="img-box"><img src="img/home-analyse.png" alt=""></span><p>analyse</p></a></li>
                     <li><a href=""><span class="img-box"><img src="img/home-plan.png" alt=""></span><p>plan</p></a></li>
                     <li><a href=""><span class="img-box"><img src="img/home-earn.png" alt=""></span><p>earn</p></a></li>
                 </ul>
-            </div>
+            </nav>
             <div class="search-logoff-box">
                 <ul class="search-logoff-buttons menu">
                     <li>
@@ -83,8 +83,8 @@
             <div class="switch-box">
                 <p>Accounts analysis</p>
                 <div class="switch large">
-                    <input class="switch-input" id="yes-no" type="checkbox" name="exampleSwitch">
-                    <label class="switch-paddle" for="yes-no">
+                    <input class="switch-input" id="yes-no" type="checkbox" name="Chart Switch">
+                    <label class="switch-paddle" id="toogle" for="yes-no">
                         <span class="show-for-sr">Accounts analysis</span>
                         <span class="switch-inactive" aria-hidden="true">ON</span>
                         <span class="switch-active" aria-hidden="true">OFF</span>
@@ -93,184 +93,38 @@
             </div>
         </div>
         <div class="graph-box">
-            <!--<img src="img/graph.jpg" alt="">-->
-            <div id="chart_div" style="width: 100%; height: 100%;"></div>
+            <div class="img hide"><img src="img/graph.jpg" style="width: 100%; height: 100%;" alt=""></div>
+            <div class="chart-box" id="chart-box" style="width: 100%; height: 100%;"></div>
+        </div>
+        <div class="analysis-box">
+            <div class="analysis-menu">
+                <h3>Show</h3>
+                <button class="income-button">Income</button>
+                <button class="expences-button">Expences</button>
+                <button class="balance-button">Balance</button>
+                <h3>Choose time period</h3>
+                <select class="info-type" name="type">
+                    <option value="30">Last 30 days</option>
+                </select>
+                <h3>Sort by</h3>
+                <select class="info-type" name="type">
+                    <option value="all">All Categories</option>
+                </select>
+            </div>
+            <div class="doughnut-chart">
+                <div class="income-chart">Elo wykres here!</div>
+                <div class="expences-chart hide"></div>
+                <div class="balance-chart hide"></div>
+            </div>
         </div>
         <div class="products-history-row">
             <div class="products-box">
                 <h3>Products</h3>
-                <!--<div class="product1">-->
-                    <!--<div class="img-box">-->
-                        <!--<img src="img/wallet.png" alt="">-->
-                    <!--</div>-->
-                    <!--<div class="info-box">-->
-                        <!--<ul class="info">-->
-                            <!--<li id ="type">Wallets [3]</li>-->
-                            <!--<p><span id="amount"></span>500,00 <span id="currency"></span> PLN</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="product2">-->
-                    <!--<div class="img-box">-->
-                        <!--<img src="img/wallet.png" alt="">-->
-                    <!--</div>-->
-                    <!--<div class="info-box">-->
-                        <!--<ul class="info">-->
-                            <!--<li>Wallets [3]</li>-->
-                            <!--<li>500,00 PLN</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="product3">-->
-                    <!--<div class="img-box">-->
-                        <!--<img src="img/wallet.png" alt="">-->
-                    <!--</div>-->
-                    <!--<div class="info-box">-->
-                        <!--<ul class="info">-->
-                            <!--<li>Wallets [3]</li>-->
-                            <!--<li>500,00 PLN</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="product4">-->
-                    <!--<div class="img-box">-->
-                        <!--<img src="img/wallet.png" alt="">-->
-                    <!--</div>-->
-                    <!--<div class="info-box">-->
-                        <!--<ul class="info">-->
-                            <!--<li>Wallets [3]</li>-->
-                            <!--<li>500,00 PLN</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="product5">-->
-                    <!--<div class="img-box">-->
-                        <!--<img src="img/wallet.png" alt="">-->
-                    <!--</div>-->
-                    <!--<div class="info-box">-->
-                        <!--<ul class="info">-->
-                            <!--<li>Wallets [3]</li>-->
-                            <!--<li>500,00 PLN</li>-->
-                        <!--</ul>-->
-                    <!--</div>-->
-                <!--</div>-->
             </div>
             <div class="history-box">
                 <h3>History</h3>
                 <div class="history-list-box">
                     <ul class="history-list">
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
                         <li>
                             <span class="date">29.06</span>
                             <span class="info-box">
@@ -309,7 +163,7 @@
         $(this).addClass('shrink');
     }).on('sticky.zf.unstuckfrom:top', function(){
         $(this).removeClass('shrink');
-    })
+    });
 
     $('.home-search-input').blur(
         function(){
@@ -326,7 +180,7 @@
 <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>-->
 <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
 <script>
-    var chart = document.getElementsByClassName("graph-box")[0];
+    var chart = document.getElementsByClassName("chart-box")[0];
     var myChart = echarts.init(chart);
 
     option = {
@@ -388,9 +242,7 @@
                     inside: true,
                     fontFamily: 'roboto_condensedlight',
                     fontSize: 16,
-                    color: function (value, index) {
-                        return value >= 0 ? '#CDCDCD' : '#CDCDCD';
-                    },
+                    color: '#CDCDCD',
                     verticalAlign: 'bottom',
                 },
                 offset: 0
@@ -398,9 +250,25 @@
         ],
         series : [
             {
-                type:'line',
+                type: 'line',
                 smooth: true,
-                areaStyle: {normal: {}},
+                areaStyle: {normal: {
+                    color: '#0088d5',
+//                        {
+//                        type: 'linear',
+//                        x: 0,
+//                        y: 0,
+//                        x2: 1,
+//                        y2: 0,
+//                        colorStops: [{
+//                            offset: 0, color: '#0088d5' // color at 0% position
+//                        },
+//                        {
+//                            offset: 0.5, color: '#13bdd2' // color at 100% position
+//                        }],
+//                        globalCoord: false // false by default
+//                    }
+                }},
                 data:[12000, 5000, 4000, 14000, 19000, 2000, 500, 400]
             }
         ]
@@ -410,6 +278,6 @@
         myChart.setOption(option, true);
     }
 </script>
-<!--<script src="js/home.js"></script>-->
+<script src="js/home.js"></script>
 </body>
 </html>

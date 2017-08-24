@@ -320,6 +320,47 @@ main {
       }
     }
 
+    .analysis-box {
+      flex-direction: row;
+
+      .analysis-menu {
+        width: 300px;
+
+        h3 {
+          @include font;
+          width: 100%;
+          font-size: 18px;
+        }
+
+        button {
+          width: 100%;
+          height: 40px;
+          background-color: #afafaf;
+          color: white;
+          margin: 2px 0;
+          border-radius: 5px;
+          text-transform: uppercase;
+
+          &:hover {
+            background-color: #13bdd2;
+          }
+        }
+
+        select {
+          text-transform: uppercase;
+          background-image: url("../img/select-bg-icon.png");
+          background-position: 105% 50%;
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+        }
+      }
+
+      .doughnut-chart {
+        width: 800px;
+      }
+
+    }
+
     .products-history-row {
       display: flex;
       padding-bottom: 50px;
@@ -339,6 +380,7 @@ main {
         }
 
         div {
+
           height: 110px;  // 180 * 62,5%
           width: 45%;
           background-color: $white;
@@ -353,9 +395,9 @@ main {
             height: 45px;
             width: 45px;
 
-            img {
-              width: 100%;
-              height: 100%;
+            span {
+              color: #ACACAC;
+              font-size: 45px;
             }
           }
 
@@ -367,7 +409,27 @@ main {
               font-size: 18px;
             }
           }
+
+          &:hover, &:last-child:not(.info-box) {
+            background-color: #13bdd2;
+
+            .info-box {
+              background-color: #13bdd2;
+            }
+
+            .img-box {
+              background-color: #13bdd2;
+
+              span{
+                background-color: #13bdd2;
+                color: white;
+              }
+            }
+          }
         }
+
+
+
       }
 
       .history-box {
@@ -407,6 +469,12 @@ main {
               }
 
               .info-box {
+                width: 65%;
+
+                .info-text {
+                  width: 100%;
+                  display: block;
+                }
 
                 select {
                   width: 85px;
@@ -425,6 +493,11 @@ main {
               .price {
                 width: 105px;   // 170 * 62,5%
                 margin: 0 25px 0 0;
+                text-align: right;
+
+                &.income {
+                  color: #6eb512;
+                }
               }
             }
             li:not(:last-child) {
