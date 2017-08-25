@@ -321,15 +321,14 @@ main {
     }
 
     .analysis-box {
-      flex-direction: row;
 
       .analysis-menu {
-        width: 300px;
 
         h3 {
           @include font;
           width: 100%;
           font-size: 18px;
+          margin-top: 30px;
         }
 
         button {
@@ -353,10 +352,50 @@ main {
           background-repeat: no-repeat;
           background-size: 20px 20px;
         }
+
+        .offer-box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+          height: 125px;
+          border: solid 2px #a9aaaa;
+          margin-bottom: 100px;
+
+          span {
+            font-size: 38px;
+            color: #13bdd2;
+            margin: 15px;
+          }
+          p {
+            width: 60%;
+            margin: 0;
+
+          }
+        }
+
       }
 
-      .doughnut-chart {
-        width: 800px;
+      .doughnut-charts-box {
+        display: flex;
+        justify-content: center;
+
+        .doughnut-chart {
+          margin-top: 30px;
+          width: 70%;
+          margin-bottom: 50px;
+        }
+
+        .income-chart {
+          background-color: yellow;
+        }
+        .expences-chart {
+          background-color: orchid;
+        }
+        .balance-chart {
+          background-color: hotpink;
+        }
       }
 
     }
@@ -377,6 +416,7 @@ main {
           width: 100%;
           display: block;
           margin-left: 10px;
+          font-size: 18px;
         }
 
         div {
@@ -427,9 +467,6 @@ main {
             }
           }
         }
-
-
-
       }
 
       .history-box {
@@ -442,6 +479,7 @@ main {
           @include font;
           width: 100%;
           margin-bottom: 18px;
+          font-size: 18px;
         }
 
         .history-list-box {

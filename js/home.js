@@ -103,9 +103,53 @@ getHistory();
 // SWITCH BUTTON
 
 $('.switch-paddle').click(function() {
+    $('.graph-box').toggleClass('hide');
+    $('.analysis-box').toggleClass('hide');
+});
 
-    $('.img').toggleClass('hide');
-    $('.chart-box').toggleClass('hide');
+// ANALYSIS MENU
+function chartSwitch(chartShow, chartHide, chartHide2) {
+    if (chartShow.hasClass('hide')) {
+        chartShow.removeClass('hide');
+        if (!(chartHide.hasClass('hide'))) {
+            chartHide.addClass('hide');
+        }
+        if (!chartHide2.hasClass('hide')) {
+            chartHide2.addClass('hide');
+        }
+    }
+}
 
+const income = $('.income-chart');
+const expence = $('.expences-chart');
+const balance = $('.balance-chart');
 
+$('.income-button').click(function () {
+    chartSwitch(income, expence, balance);
+});
+
+$('.expences-button').click(function () {
+    chartSwitch(expence, income, balance);
+});
+
+$('.balance-button').click(function() {
+    chartSwitch(balance, income, expence);
+});
+
+// SEARCH INPUT
+
+$('.home-search-input').blur(function(){
+    $(this).val('');
+});
+
+// FOUNDATION
+
+$(document).foundation();
+
+// STICKY NAV
+
+$('.title-bar').on('sticky.zf.stuckto:top', function(){
+    $(this).addClass('shrink');
+}).on('sticky.zf.unstuckfrom:top', function(){
+    $(this).removeClass('shrink');
 });
