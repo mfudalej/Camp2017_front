@@ -34,15 +34,23 @@ const getProducts = () => {
         const productsList = data.content;
 
 
-
-
         productsList.forEach((element, index) => {
             let iconName = element.type.toLowerCase().replace(/\s/g, '');
+
+        let noElements;
+
+        if (element.elements === 0) {
+            noElements = 'hide';
+        } else {
+            noElements = '';
+        }
 
             const productTemplate = `
                 <div class="product${index}">
                     <div class="img-box">
-                        <span class="icon-${iconName}"></span>
+                        <span class="icon-${iconName}">
+                            <span class="elements-info ${noElements}">${element.elements}</span>
+                        </span>
                     </div>
                     <div class="info-box">
                         <ul class="info">
@@ -83,11 +91,11 @@ const getHistory = () => {
                          <span class="info-text">${element.description}</span>
                          <select class="info-type" name="type">
                              <option value="${element.category}">${element.category}</option> 
-                             <option value="volvo">Gas</option>
-                             <option value="saab">Cash</option>
-                             <option value="fiat">Salary</option>
-                             <option value="audi">Food</option>
-                             <option value="audi">Fun</option>
+                             <option value="gas">Gas</option>
+                             <option value="cash">Cash</option>
+                             <option value="salary">Salary</option>
+                             <option value="food">Food</option>
+                             <option value="fun">Fun</option>
                          </select>
                      </span>
                      <span class="price ${element.status}"><span class="bold-font">${historyAmount}</span> ${element.currency}</span>
