@@ -46,16 +46,16 @@ const getProducts = () => {
         }
 
             const productTemplate = `
-                <div class="product${index}">
+                <div class="product product${index}">
                     <div class="img-box">
-                        <span class="icon-${iconName}">
+                        <span class="icon icon-${iconName}">
                             <span class="elements-info ${noElements}">${element.elements}</span>
                         </span>
                     </div>
                     <div class="info-box">
                         <ul class="info">
                             <li id ="type">${element.type}</li>
-                            <p><span id="amount"></span>${element.amount}<span id="currency"></span> ${element.currency}</li>
+                            <p class="amount-paragraph"><span id="amount"></span>${element.amount}<span id="currency"></span> ${element.currency}</li>
                         </ul>
                     </div>
                 </div>`;
@@ -85,7 +85,7 @@ const getHistory = () => {
             let historyDate = element.date.slice(-5);
 
             const historyTemplate = `
-                <li>
+                <li class="history-list-el">
                      <span class="date">${historyDate}</span>
                      <span class="info-box">
                          <span class="info-text">${element.description}</span>

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login site</title>
     <link rel="stylesheet" href="css/app.css">
+
+    <script src="https://cdn.anychart.com/js/7.14.0/anychart-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.anychart.com/css/7.14.0/anychart-ui.min.css" />
 </head>
 <body>
 <!--header-->
@@ -48,29 +51,29 @@
 <!--main-->
 <main>
     <div class="container">
-        <div class="main-header-row">
-            <div class="header-box">
-                <h1>Finance life stream</h1>
+        <div class="main-header-row row align-justify">
+            <div class="header-box large-6 column">
+                <h1 class="main-header">Finance life stream</h1>
             </div>
-            <div class="buttons-box">
+            <div class="buttons-box large-3 column">
                 <button class="add-button button">Add</button>
                 <button class="bank-button button">Bank</button>
                 <button class="payment-button button">Payment</button>
             </div>
         </div>
-        <div class="finance-info-row">
-            <div class="balance-box">
-                <h2>Balance<br><span class="bold-font" id="balance-box"></span> PLN</h2>
+        <div class="finance-info-row row align-justify">
+            <div class="balance-box column shrink">
+                <h2 class="balance-header">Balance<br><span class="bold-font" id="balance-box"></span> PLN</h2>
             </div>
-            <div class="available-box">
-                <h2>Available funds<br><span class="bold-font"  id="available-box"></span> PLN</h2>
+            <div class="available-box column shrink">
+                <h2 class="available-header">Available funds<br><span class="bold-font"  id="available-box"></span> PLN</h2>
             </div>
-            <div class="scheduled-payments-box">
-                <h2>Scheduled payments<br><span class="bold-font" id="scheduled-payments-box"></span> PLN</h2>
+            <div class="scheduled-payments-box column shrink">
+                <h2 class="scheduled-header">Scheduled payments<br><span class="bold-font" id="scheduled-payments-box"></span> PLN</h2>
                 <button class="button fast-pay-button">Fast pay</button>
             </div>
-            <div class="switch-box">
-                <p>Accounts analysis</p>
+            <div class="switch-box column shrink">
+                <p class="switch-paragraph">Accounts analysis</p>
                 <div class="switch large">
                     <input class="switch-input" id="yes-no" type="checkbox" name="Chart Switch">
                     <label class="switch-paddle" id="toogle" for="yes-no">
@@ -81,9 +84,11 @@
                 </div>
             </div>
         </div>
-        <div class="graph-box">
-            <div class="img hide"><img src="img/graph.jpg" style="width: 100%; height: 100%;" alt=""></div>
-            <div class="chart-box" id="chart-box" style="width: 100%; height: 100%;"></div>
+        <div class="row">
+            <div class="graph-box column large-12">
+                <div class="img hide"><img src="img/graph.jpg" style="width: 100%; height: 100%;" alt=""></div>
+                <div class="chart-box" id="chart-box" style="width: 100%; height: 100%;"></div>
+            </div>
         </div>
         <div class="analysis-box hide row">
             <div class="analysis-menu column large-3">
@@ -110,31 +115,19 @@
                 <div class="doughnut-chart balance-chart hide">balance-chart</div>
             </div>
         </div>
-        <div class="products-history-row">
-            <div class="products-box">
-                <h3>Products</h3>
+        <div class="products-history-row row">
+            <div class="products-box column large-6">
+                <h3 class="products-header">Products</h3>
             </div>
-            <div class="history-box">
-                <h3>History</h3>
+            <div class="history-box column large-6">
+                <h3 class="history-header">History</h3>
                 <div class="history-list-box">
-                    <ul class="history-list">
-                        <li>
-                            <span class="date">29.06</span>
-                            <span class="info-box">
-                                <span class="info-text">Gas station Shell, Warsaw Woloska street...</span>
-                                <select class="info-type" name="type">
-                                    <option value="volvo">Gas</option>
-                                    <option value="saab">Cash</option>
-                                    <option value="fiat">Salary</option>
-                                    <option value="audi">Food</option>
-                                    <option value="audi">Fun</option>
-                                </select>
-                            </span>
-                            <span class="price"><span class="bold-font">-100.00</span> PLN</span>
-                        </li>
-                    </ul>
+                    <ul class="history-list"></ul>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="chart" id="chart" style="height: 500px; width: 100%"></div>
         </div>
     </div>
 
@@ -256,5 +249,133 @@
     }
 </script>
 <script src="js/home.js"></script>
+<script type="text/javascript">
+    anychart.onDocumentReady(function() {
+        // create data set on our data
+        var dataSet = anychart.data.set([
+            ['Jan', 67, 40],
+            ['Feb', 65, 33],
+            ['Mar', 63, null], // data row with missing value, it also can be "missing" or NaN
+            ['Apr', 60, 20],
+            ['May', 62, 15],
+            ['Jun', 67, 13],
+            ['Jul', 70, 16],
+            ['Aug', 72, null], // data row with missing value, it also can be "missing" or NaN
+            ['Sep', 73, 16],
+            ['Oct', 70, 24],
+            ['Nov', 72, 30],
+            ['Dec', 70, 38]
+        ]);
+
+        // map data for the first series, take x from the zero column and value from the first column of data set
+        var seriesData_1 = dataSet.mapAs({
+            x: [0],
+            value: [1]
+        });
+
+        // map data for the second series, take x from the zero column and value from the second column of data set
+        var seriesData_2 = dataSet.mapAs({
+            x: [0],
+            value: [2]
+        });
+
+        // create area chart
+        chart = anychart.area();
+
+        // turn on chart animation
+        chart.animation(true);
+        chart.padding([10, 20, 5, 20]);
+
+        // Y axis title
+        chart.yAxis().title('Relative humidity');
+        // Y axis labels formatting
+        chart.yAxis().labels().format("{%Value}%");
+        // Minimum and maximum
+        chart.yScale()
+            .minimum(0)
+            .maximum(100);
+
+        // set chart title text settings
+        chart.title('AVERAGE HUMIDITY OVER THE YEAR<br/>' +
+            '<span style="color:#212121; font-size: 13px;">mean monthly relative humidity</span>');
+        chart.title()
+            .useHtml(true)
+            .padding([0, 0, 5, 0]);
+
+        // create first series with mapped data
+        var series_1 = chart.splineArea(seriesData_1);
+        series_1.name("Gotham");
+        series_1.hoverMarkers()
+            .enabled(true)
+            .type('circle')
+            .size(10)
+            .stroke('1.5 #fff');
+
+        // create second series with mapped data
+        var series_2 = chart.splineArea(seriesData_2);
+        series_2.name("Mos Eisley");
+        series_2.hoverMarkers()
+            .enabled(true)
+            .type('star5')
+            .size(10)
+            .stroke('1.5 #fff');
+
+        // turn the legend on and place it at the bottom of the chart
+        chart.legend()
+            .enabled(true)
+            .position('bottom')
+            .fontSize(13)
+            .padding([20, 0, 0, 0]);
+
+        chart.tooltip().valuePostfix("%");
+
+        // set container id for the chart
+        chart.container('chart');
+
+        // initiate chart drawing
+        chart.draw();
+    });
+
+    const getHistory2 = () => {
+
+        $.get("https://efigence-camp.herokuapp.com/api/data/history", data => {
+
+            const historyList = data.content;
+            var currentBalance = 50000;
+            var sum = 0;
+
+            historyList.forEach((el, i) => {
+                sum += parseInt(el.amount);     // Obliczenie sumy przychodów i wydatków.
+            });
+
+            var startBalance = currentBalance - sum;
+
+            data = historyList.map(function(el, i) {
+                var suma = 0;
+
+                if (el.status === 'outcome') {  // Konwersja formatu kwoty.
+                    el.amount = '-'+ el.amount;
+                }
+                el.date = el.date.slice(-5);    // Konwersja formatu daty.
+
+                el.suma += parseInt(el.amount);
+
+                el.balance = startBalance + suma - parseInt(el.amount);
+
+                return '{date:' + el.date + ', amount:' + el.amount+' balance: '+ el.balance +' sum: '+ el.suma + '}';
+            });
+
+
+
+            console.log(historyList); //wypisze [Marcin, Ania, Agnieszka]
+            console.log(data); //wypisze [Marcin, Ania, Agnieszka]
+//            console.log(startBalance);
+//            console.log(suma);
+//            console.log(currentBalance);
+//            console.log(data);
+        });
+    };
+    getHistory2();
+</script>
 </body>
 </html>
