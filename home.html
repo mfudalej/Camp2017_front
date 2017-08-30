@@ -86,8 +86,7 @@
         </div>
         <div class="row">
             <div class="graph-box column large-12">
-                <div class="img hide"><img src="img/graph.jpg" style="width: 100%; height: 100%;" alt=""></div>
-                <div class="chart-box" id="chart-box" style="width: 100%; height: 100%;"></div>
+                <div class="chart" id="chart"></div>
             </div>
         </div>
         <div class="analysis-box hide row">
@@ -110,9 +109,27 @@
                 </div>
             </div>
             <div class="doughnut-charts-box column large-9">
-                <div class="doughnut-chart income-chart hide">income-chart</div>
-                <div class="doughnut-chart expences-chart">expences-chart</div>
-                <div class="doughnut-chart balance-chart hide">balance-chart</div>
+                <div class="doughnut-chart income-chart hide" id="income-chart">
+                    <div class="balace-title title-box">
+                    <div class="title-row">
+                        <div class="title">Income<br> Summary<br><span class="income-summary-amount bold-font"></span></div>
+                    </div>
+                </div>
+                </div>
+                <div class="doughnut-chart expences-chart" id="expences-chart">
+                    <div class="balace-title title-box">
+                        <div class="title-row">
+                            <div class="title">Outcome<br> Summary<br><span class="expences-summary-amount bold-font"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="doughnut-chart balance-chart hide" id="balance-chart">
+                    <div class="balace-title title-box">
+                        <div class="title-row">
+                            <div class="title">Balance<br><span class="balance-amount bold-font">132132 PLN</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="products-history-row row">
@@ -126,11 +143,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="chart" id="chart" style="height: 500px; width: 100%"></div>
-        </div>
     </div>
-
 </main>
 <!--/main-->
 
@@ -141,277 +154,7 @@
 <script src="bower_components/what-input/dist/what-input.js"></script>
 <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
 
-<!--CANVAS-->
-<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>-->
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>-->
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>-->
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>-->
-<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>-->
-<!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>-->
-<script>
-    var chart = document.getElementsByClassName("chart-box")[0];
-    var myChart = echarts.init(chart);
-
-    option = {
-        textStyle: {
-            fontSize: 16,
-            fontFamily: 'roboto_condensedlight'
-        },
-        tooltip : {
-            trigger: 'axis',
-            axisPointer: {
-                type: 'cross',
-                label: {
-                    backgroundColor: '#6a7985'
-                }
-            }
-        },
-        toolbox: {
-            show: false
-        },
-        grid: {
-            backgroundColor: '#fff',
-            show: true,
-            left: '0%',
-            right: '0%',
-            bottom: '0%',
-            top: '0%'
-//            zlevel: -5
-        },
-        xAxis : [
-            {
-                show: true,
-                type: 'category',
-                axisLabel: {
-                    inside: true,
-                    fontSize: 16,
-                    color: function (value, index) {
-                        return value >= 0 ? '#000' : '#000';
-                    },
-                    showMaxLabel: false
-                },
-                boundaryGap : false,
-                data: [0, 3, 7, 11, 14, 21, 25],
-
-            }
-        ],
-        yAxis : [
-            {
-                show: true,
-                type : 'value',
-                name: 'Balance',
-                interval: 5000,
-                axisLine: {
-                    show: false,
-                    lineStyle: {
-                        color: ['#F5F5F5', '#F5F5F5']
-                    }
-                },
-                axisLabel: {
-                    inside: true,
-                    fontFamily: 'roboto_condensedlight',
-                    fontSize: 16,
-                    color: '#CDCDCD',
-                    verticalAlign: 'bottom',
-                },
-                offset: 0
-            }
-        ],
-        series : [
-            {
-                type: 'line',
-                smooth: true,
-                areaStyle: {normal: {
-                    color: '#0088d5',
-//                        {
-//                        type: 'linear',
-//                        x: 0,
-//                        y: 0,
-//                        x2: 1,
-//                        y2: 0,
-//                        colorStops: [{
-//                            offset: 0, color: '#0088d5' // color at 0% position
-//                        },
-//                        {
-//                            offset: 0.5, color: '#13bdd2' // color at 100% position
-//                        }],
-//                        globalCoord: false // false by default
-//                    }
-                }},
-                data:[12000, 5000, 4000, 14000, 19000, 2000, 500, 400]
-            }
-        ]
-    };
-
-    if (option && typeof option === "object") {
-        myChart.setOption(option, true);
-    }
-</script>
 <script src="js/home.js"></script>
-<script type="text/javascript">
-
-
-    const getHistory2 = () => {
-
-        $.get("https://efigence-camp.herokuapp.com/api/data/history", data => {
-
-            const historyList = data.content;
-            var currentBalance = 50000;
-            var sum = 0;
-
-            historyList.forEach((el, i) => {
-
-                var kwota = el.amount;
-
-                if (el.status === 'outcome') {  // Konwersja formatu kwoty.
-                    kwota = parseInt('-'+ el.amount);
-                }
-                sum += kwota;     // Obliczenie sumy przychodów i wydatków.
-            });
-
-            var startBalance = currentBalance - sum;
-            var suma = 0;
-
-            data = historyList.map(function(el, i) {
-
-                if (el.status === 'outcome') {  // Konwersja formatu kwoty.
-                    el.amount = parseInt('-'+ el.amount);
-                }
-                el.date = el.date.slice(-5).replace("-", ".");    // Konwersja formatu daty.
-
-                suma += el.amount;
-
-//                el.balance = startBalance + suma - el.amount;
-                el.balance = startBalance + suma;
-
-                el.x = el.date;
-                el.value = el.balance;
-
-//                return '{date:' + el.date + ', amount:' + el.amount+' balance: '+ el.balance +'}';
-            });
-
-
-
-            console.log(historyList); //wypisze [Marcin, Ania, Agnieszka]
-//            console.log(data); //wypisze [Marcin, Ania, Agnieszka]
-            console.log('kwota poczatkowa: ' + startBalance);
-            console.log('suma wpłat: ' + sum);
-            console.log('kwota końcowa: ' + currentBalance);
-//            console.log(data);
-
-        // CHART SETUP
-
-        anychart.onDocumentReady(function() {
-            // create data set on our data
-
-//            var dataSet = anychart.data.set(historyList);
-
-
-//            var dataSet = anychart.data.set([
-//                ['Jan', 67, 40],
-//                ['Feb', 65, 33],
-//                ['Mar', 63, null], // data row with missing value, it also can be "missing" or NaN
-//                ['Apr', 60, 20],
-//                ['May', 62, 15],
-//                ['Jun', 67, 13],
-//                ['Jul', 70, 16],
-//                ['Aug', 72, null], // data row with missing value, it also can be "missing" or NaN
-//                ['Sep', 73, 16],
-//                ['Oct', 70, 24],
-//                ['Nov', 72, 30],
-//                ['Dec', 70, 38]
-//            ]);
-
-            var areaChart = anychart.area();
-
-//            // map data for the first series, take x from the zero column and value from the first column of data set
-//            var seriesData_1 = dataSet.mapAs({
-//                x: [0],
-//                value: [1]
-//            });
-//
-//            // map data for the second series, take x from the zero column and value from the second column of data set
-//            var seriesData_2 = dataSet.mapAs({
-//                x: [0],
-//                value: [2]
-//            });
-
-//            // create area chart
-//            chart = anychart.area();
-//
-//            // turn on chart animation
-            areaChart.animation(true);
-//            chart.padding([10, 20, 5, 20]);
-//
-//            // Y axis title
-//            chart.yAxis().title('Relative humidity');
-//            // Y axis labels formatting
-//            areaChart.xAxis().labels().format("{%Value}%");
-//            // Minimum and maximum
-//            chart.yScale()
-//                .minimum(0)
-//                .maximum(100);
-//
-//            // set chart title text settings
-//            chart.title('AVERAGE HUMIDITY OVER THE YEAR<br/>' +
-//                '<span style="color:#212121; font-size: 13px;">mean monthly relative humidity</span>');
-//            chart.title()
-//                .useHtml(true)
-//                .padding([0, 0, 5, 0]);
-            // chart grid
-            areaChart.grid(1);
-
-            var crosshair = areaChart.crosshair();
-            crosshair.enabled(true)
-                .yStroke(null)
-                .xStroke('#fff')
-                .zIndex(99);
-
-            var series = areaChart.splineArea(historyList);
-            series.color('Gold 0.5');
-            series.type('circle')
-                .hoverMarkers()
-                .enabled(true);
-//                .size(10);
-//
-//            // create first series with mapped data
-//            var series_1 = chart.splineArea(seriesData_1);
-//            series_1.name("Gotham");
-//            series_1.hoverMarkers()
-//                .enabled(true)
-//                .type('circle')
-//                .size(10)
-//                .stroke('1.5 #fff');
-//
-//            // create second series with mapped data
-//            var series_2 = chart.splineArea(seriesData_2);
-//            series_2.name("Mos Eisley");
-//            series_2.hoverMarkers()
-//                .enabled(true)
-//                .type('star5')
-//                .size(10)
-//                .stroke('1.5 #fff');
-//
-//            // turn the legend on and place it at the bottom of the chart
-//            chart.legend()
-//                .enabled(true)
-//                .position('bottom')
-//                .fontSize(13)
-//                .padding([20, 0, 0, 0]);
-//
-//            chart.tooltip().valuePostfix("%");
-
-            // set container id for the chart
-            areaChart.container('chart');
-
-            // initiate chart drawing
-            areaChart.draw();
-        });
-
-        });
-    };
-    getHistory2();
-</script>
+<script src="js/charts.js"></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 // Summary
 
+
+
 const getSummary = (endpoint, containers) => {
 
     const balance = document.querySelector(containers.balance);
@@ -161,3 +163,5 @@ $('.title-bar').on('sticky.zf.stuckto:top', function(){
 }).on('sticky.zf.unstuckfrom:top', function(){
     $(this).removeClass('shrink');
 });
+
+// CHARTS

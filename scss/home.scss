@@ -20,9 +20,6 @@ header {
         display: flex;
         flex-direction: row;
 
-        //.logo {
-        //  margin: 0 4px;
-        //}
         .simple-logo {
           width: 100px;
           height: 100px;
@@ -321,6 +318,16 @@ main {
       height: 310px;  // 500 * 62,5%
       margin-bottom: 20px;
       margin-top: 30px;
+
+      .chart {
+        width: 100%;
+        height: 310px !important;
+        background-color: #fff;
+
+        .anychart-credits {
+          display: none !important;
+        }
+      }
     }
 
     .analysis-box {
@@ -386,18 +393,36 @@ main {
 
         .doughnut-chart {
           margin-top: 30px;
-          width: 70%;
+          width: 100%;
           margin-bottom: 50px;
-        }
+          position: relative;
 
-        .income-chart {
-          background-color: yellow;
-        }
-        .expences-chart {
-          background-color: orchid;
-        }
-        .balance-chart {
-          background-color: hotpink;
+          .title-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            .title-row {
+              height: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .title {
+                font-size: 38px;
+                text-align: center;
+                padding-bottom: 20px;
+              }
+            }
+
+
+          }
+
+          .anychart-credits {
+            display: none !important;
+          }
         }
       }
 
