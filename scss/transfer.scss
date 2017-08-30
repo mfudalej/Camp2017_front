@@ -1,0 +1,153 @@
+main {
+  //height: 100vh;
+
+  .account-box {
+    border: solid 0.4px #9f9f9f;
+    border-radius: 5px;
+    height: 80px;
+    margin-bottom: 20px;
+
+    .account-icon-box {
+      display: flex;
+      align-items: center;
+      height: 80px;
+
+      img {
+        margin: 0 10px 0 20px;
+      }
+    }
+
+    .account-name-number-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 80px;
+    }
+
+    .account-balance-box {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .account-balance {
+        font-size: 40px;
+        margin: 0;
+      }
+    }
+
+    .account-arrow-icon-box {
+      height: 80px;
+      display: flex;
+      align-items: center;
+
+      img {
+        //margin: 0 20px;
+      }
+    }
+  }
+
+  .type-checkboxes {
+    list-style: none;
+    margin: 0;
+
+    .type-checkboxes-li {
+      text-align: center;
+      padding-right: 15px;
+
+      .type-label {
+        text-align: center;
+        font-size: 16px;
+
+
+        .img-box {
+          display: flex;
+          align-content: center;
+          background-color: #A0A0A0;
+          width: 60px;
+          height:60px;
+          margin: auto;
+
+          .type-icon {
+            margin: auto;
+          }
+        }
+
+        input:checked + .img-box {
+          background-color: #0BBED3;
+
+        }
+      }
+    }
+  }
+
+  .recipient-input-box {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border: solid 1px #e3e3e3;
+    border-top-width: 3px;
+    border-radius: 3px;
+
+    .search-input {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      padding-left: 15px;
+    }
+
+    .recipient-button {
+      margin-right: 15px;
+    }
+  }
+
+  .where-checkboxes {
+    list-style: none;
+    margin: 0;
+
+    .account-label {
+
+      .input-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 20px;
+        height: 50px;
+
+        .img-box {
+
+          .checkbox-icon {
+            display: block;
+          }
+          .checked-checkbox-icon {
+            display: none;
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+
+        input:checked + .img-box {
+
+          .checkbox-icon{
+            display: none;
+          }
+          .checked-checkbox-icon {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  form {
+    background-color: $white;
+    padding: 50px 20px;
+    border-radius: 10px;
+  }
+}
+
+
