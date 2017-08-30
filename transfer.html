@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login site</title>
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="https://cdn.anychart.com/js/7.14.0/anychart-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.anychart.com/css/7.14.0/anychart-ui.min.css" />
+</head>
+<body>
+<!--header-->
+<header data-sticky-container>
+    <div class="title-bar" data-sticky data-options="marginTop:0;">
+        <div class="container">
+            <div class="logo-user-box">
+                <div class="simple-logo">
+                    <img src="img/logo.png" alt="">
+                </div>
+                <div class="avatar">
+                    <img src="img/avatar.jpg" alt="">
+                </div>
+                <div class="user-account-box">
+                    <p>Jan Kowalski</p>
+                    <ul class="user-buttons menu">
+                        <li><a href=""><span class="icon-envelope"><span class="elements-info">2</span></span></a></li>
+                        <li><a href=""><span class="icon-cog"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <nav class="nav-box">
+                <ul class="navigation menu">
+                    <li><a href=""><span class="img-box"><img src="img/home-home.png" alt=""></span><p>home</p></a></li>
+                    <li><a href=""><span class="img-box"><img src="img/home-analyse.png" alt=""></span><p>analyse</p></a></li>
+                    <li><a href=""><span class="img-box"><img src="img/home-plan.png" alt=""></span><p>plan</p></a></li>
+                    <li><a href=""><span class="img-box"><img src="img/home-earn.png" alt=""></span><p>earn</p></a></li>
+                </ul>
+            </nav>
+            <div class="search-logoff-box">
+                <ul class="search-logoff-buttons menu">
+                    <li><input class='home-search-input' type="text" name="search" placeholder=""></li>
+                    <li><a href="" class="logoff-button"><span class="icon-switch"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!--/header-->
+<!--main-->
+<main>
+    <div class="container">
+        <div class="row align-center">
+            <div class="column small-8">
+                <form action="">
+                    <div class="row">
+                        <div class="column small-12">
+                            <div class="account-box">
+                                <!--<select class="" name="accound-select" id="#">-->
+                                    <!--<option value="Current account">Current account</option>-->
+                                <!--</select>-->
+                                <div class="account-select">
+                                    <div class="row">
+                                        <div class="column small-1">
+                                            <div class="account-icon-box">
+                                                <img src="img/account-select-icon.svg" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="column small-5">
+                                            <div class="account-name-number-box">
+                                                <span class="account-name">Current account</span>
+                                                <span class="account-number">33 1234 5678 2233 0000 8373 7756</span>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="account-balance-box">
+                                                <p class="account-balance"><span class="bold-font">2 917,50</span> PLN</p>
+                                            </div>
+                                        </div>
+                                        <div class="column small-1">
+                                            <div class="account-arrow-icon-box">
+                                                <img src="img/bottom-arrow.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="button add-button">Add account from whitch you draw funds</div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Type</label>
+                        </div>
+                        <div class="column small-9">
+                            <ul class="type-checkboxes">
+                                <li class="type-checkboxes-li">
+                                    <label class="type-label" for="country">
+                                        <input class="hide" type="radio" name="type" id="country" checked>
+                                        <div class="img-box">
+                                            <img class="type-icon" src="img/country.svg" alt="country icon">
+                                        </div>
+                                        <p>Country</p>
+                                    </label>
+                                </li>
+                                <li class="type-checkboxes-li">
+                                    <label class="type-label" for="own">
+                                        <input class="hide type-label" type="radio" name="type" id="own">
+                                        <div class="img-box">
+                                            <img class="type-icon" src="img/own.svg" alt="own icom">
+                                        </div>
+                                        <p>Own</p>
+                                    </label>
+
+                                </li>
+                                <li class="type-checkboxes-li">
+                                    <label class="type-label" for="currencies">
+                                        <input class="hide type-label" type="radio" name="type" id="currencies">
+                                        <div class="img-box">
+                                            <img class="type-icon" src="img/currencies.svg" alt="currencies icon">
+                                        </div>
+                                        <p>Currencies</p>
+                                    </label>
+                                </li>
+                                <li class="type-checkboxes-li">
+                                    <label class="type-label" for="zus">
+                                        <input class="hide type-label" type="radio" name="type" id="zus">
+                                        <div class="img-box">
+                                            <img class="type-icon" src="img/zus.svg" alt="zus icon">
+                                        </div>
+                                        <p>ZUS</p>
+                                    </label>
+                                </li>
+                                <li class="type-checkboxes-li">
+                                    <label class="type-label" for="tax">
+                                        <input class="hide type-label" type="radio" name="type" id="tax">
+                                        <div class="img-box">
+                                            <img class="type-icon" src="img/us.svg" alt="tax icon">
+                                        </div>
+                                        <p>TAX</p>
+                                    </label>
+                                </li>
+                                <li class="type-checkboxes-li">
+                                    <label class="type-label" for="gsm">
+                                        <input class="hide type-label" type="radio" name="type" id="gsm">
+                                        <div class="img-box">
+                                            <img class="type-icon" src="img/gsm.svg" alt="gsm-icon">
+                                        </div>
+                                        <p>GSM</p>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Recipient</label>
+                        </div>
+                        <div class="column small-9">
+                            <div class="recipient-input-box">
+                                <input type="text" class="search-input" placeholder="Search for a recipient , contractor or customer">
+                                <a class="recipient-button" href="#"><img src="img/book-icon.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Where</label>
+                        </div>
+                        <div class="column small-9">
+                            <ul class="where-checkboxes">
+                                <li class="where-checkboxes-li">
+                                    <label class="where-label" for="account">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="account">
+                                            <div class="checkbox"></div>
+                                            <p>Account</p>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="where-checkboxes-li">
+                                    <label class="where-label" for="facebook">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="facebook">
+                                            <div class="checkbox"></div>
+                                            <p>Facebook</p>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="where-checkboxes-li">
+                                    <label class="where-label" for="phone">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="phone">
+                                            <div class="checkbox"></div>
+                                            <p>Phone</p>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="where-checkboxes-li">
+                                    <label class="where-label" for="e-mail">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="e-mail">
+                                            <div class="checkbox"></div>
+                                            <p>E-mail</p>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="where-checkboxes-li">
+                                    <label class="where-label" for="by-phone">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="by-phone">
+                                            <div class="checkbox"></div>
+                                            <p>By phone</p>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Number</label>
+                        </div>
+                        <div class="column small-9">
+                            <div class="number-input-box">
+                                <input type="text" class="number-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Sum</label>
+                        </div>
+                        <div class="column small-9">
+                            <div class="sum-box">
+                                <input class="sum-input" type="text">
+                                <select class="sum-select" name="" id="">
+                                    <option value="PLN">PLN</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>When</label>
+                        </div>
+                        <div class="column small-9">
+
+                            <input type="date">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Title</label>
+                        </div>
+                        <div class="column small-9">
+                            <input type="text" class="title-input">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-3">
+                            <label>Type of transfer</label>
+                        </div>
+                        <div class="column small-9">
+                            <ul class="button-group type-transfer-checkbox">
+                                <li class="where-checkboxes-li">
+                                    <label class="account-label" for="normally">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="normally">
+                                            <div class="checkbox"></div>
+                                            <p><span class="bold-font">Normally</span><br>about 2 days</p>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="where-checkboxes-li">
+                                    <label class="account-label" for="express-eliksir">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="express-eliksir">
+                                            <div class="checkbox"></div>
+                                            <p><span class="bold-font">Express Eliksir</span><br>15 min</p>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li class="where-checkboxes-li">
+                                    <label class="account-label" for="sorbnet">
+                                        <div class="checkbox-box">
+                                            <input class="hide type-label" type="radio" name="where" id="sorbnet">
+                                            <div class="checkbox"></div>
+                                            <p><span class="bold-font">Sorbnet</span><br>2 hours</p>
+                                        </div>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-offset-4 small-8 ">
+                            <div class="submit-button-box">
+                                <div class="submit-button button">CONTINUE</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+<!--/main-->
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/what-input/dist/what-input.js"></script>
+<script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+<!--<script src="js/app.js"></script>-->
+<script src="bower_components/what-input/dist/what-input.js"></script>
+<script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
+
+<!--My JS-->
+</body>
+</html>
