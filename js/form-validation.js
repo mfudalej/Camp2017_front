@@ -82,7 +82,6 @@
         }
     });
 
-
     resetButton.addEventListener('click', function () {  // Obserwator zdarzenia dla przycisku 'Select other'.
         resetId();                                       // Reset formularza Id.
         passwordErrorReset();                            // Usunięcie komunikatu.

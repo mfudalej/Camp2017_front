@@ -1,137 +1,328 @@
 main {
-  //height: 100vh;
 
-  .account-box {
-    border: solid 0.4px #9f9f9f;
-    border-radius: 5px;
-    height: 80px;
-    margin-bottom: 20px;
+  .transfer-form {
+    background-color: $white;
+    padding: 0 10px;
+    border-radius: 10px;
+    margin-bottom: 200px;
 
-    .account-icon-box {
-      display: flex;
-      align-items: center;
-      height: 80px;
+    .back-arrow-box {
 
-      img {
-        margin: 0 10px 0 20px;
+      .back-button {
+
+        img {
+          margin-bottom: 15px;
+          margin-top: 15px;
+        }
       }
     }
 
-    .account-name-number-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .account-box {
+      border: solid 0.4px #9f9f9f;
+      border-radius: 5px;
       height: 80px;
+      margin-bottom: 20px;
+
+      .account-icon-box {
+        display: flex;
+        align-items: center;
+        height: 80px;
+
+        img {
+          margin: 0 10px 0 20px;
+        }
+      }
+
+      .account-name-number-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80px;
+      }
+
+      .account-balance-box {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .account-balance {
+          font-size: 40px;
+          margin: 0;
+        }
+      }
+
+      .account-arrow-icon-box {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
     }
 
-    .account-balance-box {
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+    .account-list-box {
+      position: relative;
+      width: 100%;
+      background-color: white;
+      z-index: 15;
 
-      .account-balance {
-        font-size: 40px;
+      .account-list {
+        position: absolute;
+        width: 100%;
+        background-color: white;
+        list-style: none;
         margin: 0;
-      }
-    }
 
-    .account-arrow-icon-box {
-      height: 80px;
-      display: flex;
-      align-items: center;
+        li:hover {
+          background-color: #0BBED3;
+        }
 
-      img {
-        //margin: 0 20px;
-      }
-    }
-  }
+        .account-list-element {
+          border-bottom: 1px solid #d9dada;
+          cursor: pointer;
+          height: 60px;
 
-  .type-checkboxes {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
+          .account-balance {
+            font-size: 24px;
+          }
 
-    .type-checkboxes-li {
-      text-align: center;
-      display: block;
+          .account-balance, .account-icon-box, .account-name-number-box {
+            height: 60px;
+          }
 
-      .type-label {
-        text-align: center;
-        font-size: 16px;
-
-
-        .img-box {
-          display: flex;
-          align-content: center;
-          background-color: #A0A0A0;
-          width: 60px;
-          height:60px;
-          margin: auto;
-
-          .type-icon {
-            margin: auto;
+          .account-arrow-icon-box {
+            display: none;
           }
         }
+      }
+    }
 
-        input:checked + .img-box {
-          background-color: #0BBED3;
+    .add-account-button-box {
+      margin-bottom: 20px;
 
+      .add-account-button {
+        text-decoration: none;
+        color: black;
+        //font-size: 16px;
+
+        img {
+          margin-right: 10px;
         }
       }
     }
-  }
 
-  .recipient-input-box {
-    height: 45px;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
+    .type-checkboxes {
+      list-style: none;
+      margin: 0 5px 20px 0;
+      display: flex;
+      justify-content: space-between;
 
-    position: relative;
+      .type-checkboxes-li {
+        text-align: center;
+        display: block;
 
-    .search-input {
-      height: 100%;
-      margin: 0;
-      padding: 0 0 0 15px;
-      border: none;
-      box-shadow: none;
-      background-color: transparent;
-      z-index: 5;
+        .type-label {
+          text-align: center;
+          font-size: 16px;
 
-      &:active ~ .border-div, &:focus ~ .border-div {
-        box-shadow: 0 0 5px #cacaca;
+          .img-box {
+            display: flex;
+            align-content: center;
+            background-color: #A0A0A0;
+            width: 60px;
+            height:60px;
+            margin: 0 auto 5px;
+
+            .type-icon {
+              margin: auto;
+            }
+          }
+
+          input:checked + .img-box {
+
+            background-color: #0BBED3;
+          }
+        }
       }
     }
 
-    .recipient-button {
-      margin-right: 15px;
+    .recipient-input-box {
+      height: 45px;
+      display: flex;
+      align-items: center;
       background-color: transparent;
-      z-index: 5;
+      position: relative;
+      margin-bottom: 20px;
+
+      .search-input {
+        height: 100%;
+        margin: 0;
+        padding: 0 0 0 15px;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        z-index: 5;
+
+        &:active ~ .border-div, &:focus ~ .border-div {
+          box-shadow: 0 0 5px #cacaca;
+        }
+      }
+
+      .recipient-button {
+        margin-right: 15px;
+        background-color: transparent;
+        z-index: 5;
+      }
+
+      .border-div {
+        position: absolute;
+        border: solid 1px #e3e3e3;
+        border-top-width: 3px;
+        border-radius: 3px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .live-search-list-box {
+        position: absolute;
+        background-color: white;
+        top: 45px;
+        z-index: 50;
+        width: 100%;
+
+        .live-search-list {
+          list-style: none;
+          margin: 0;
+
+          .live-search-list-element {
+            padding-left: 15px;
+            cursor: pointer;
+
+             &:hover {
+               background-color: #0BBED3;
+             }
+          }
+        }
+      }
     }
 
-    .border-div {
-      position: absolute;
-      border: solid 1px #e3e3e3;
-      border-top-width: 3px;
-      border-radius: 3px;
-      width: 100%;
-      height: 100%;
-      //z-index: ;
+    .where-checkboxes {
+      list-style: none;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
 
+      .where-checkboxes-li {
+
+        .where-label {
+
+          .checkbox-box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 15px;
+            height: 50px;
+
+            .checkbox {
+              width: 30px;
+              height: 30px;
+              border: solid 1px #e3e3e3;
+              border-radius: 50%;
+              position: relative;
+              box-shadow: inset 3px 3px 20px -13px rgba(0,0,0,0.75);
+            }
+
+            p {
+              margin: 0 0 0 5px;
+            }
+
+            input:checked + .checkbox:after {
+              content: '';
+              display: block;
+              background-color: #00a90a;
+              width: 15px;
+              height: 15px;
+              border-radius: 50%;
+              position: absolute;
+              top: 6px;
+              right: 6px;
+            }
+          }
+        }
+      }
     }
-  }
 
-  .where-checkboxes {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
+    .number-input-box {
 
-    .where-checkboxes-li {
+      .number-input {
 
-      .where-label {
+        border: solid 1px #e3e3e3;
+        border-top-width: 3px;
+        border-radius: 3px;
+        width: 270px;
+
+        &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+
+    .sum-box {
+      display: flex;
+      flex-direction: row;
+      width: 270px;
+      justify-content: space-between;
+
+      .sum-input {
+        width: 170px;
+        border: solid 1px #e3e3e3;
+        border-top-width: 3px;
+        border-radius: 3px;
+
+        &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+
+      .sum-select {
+        width: 80px;
+        border: solid 1px #e3e3e3;
+        border-top-width: 3px;
+        border-radius: 3px;
+        padding-top: 5px;
+        background: url("../img/sum-bottom-arrow.svg") no-repeat 80% 50% ;
+      }
+    }
+
+    .when-box {
+      position: relative;
+
+      .when-input {
+        width: 140px;
+        border: solid 1px #e3e3e3;
+        border-top-width: 3px;
+        border-radius: 3px;
+        background: url("../img/date-input-icon.svg") no-repeat 90% 50%;
+      }
+    }
+
+    .title-box {
+
+      .title-input {
+        border: solid 1px #e3e3e3;
+        border-top-width: 3px;
+        border-radius: 3px;
+      }
+    }
+
+    .type-transfer-checkbox {
+      list-style: none;
+      margin: 0;
+
+      .account-label {
 
         .checkbox-box {
           display: flex;
@@ -167,105 +358,25 @@ main {
         }
       }
     }
-  }
 
-  .number-input-box {
+    .continue-button-box {
 
-    .number-input {
-
-      border: solid 1px #e3e3e3;
-      border-top-width: 3px;
-      border-radius: 3px;
-      width: 270px;
-    }
-  }
-
-  .sum-box {
-    display: flex;
-    flex-direction: row;
-    width: 270px;
-    justify-content: space-between;
-
-    .sum-input {
-      width: 170px;
-      border: solid 1px #e3e3e3;
-      border-top-width: 3px;
-      border-radius: 3px;
-    }
-
-    .sum-select {
-      width: 80px;
-      border: solid 1px #e3e3e3;
-      border-top-width: 3px;
-      border-radius: 3px;
-    }
-  }
-
-  .when-box {
-
-    .when-input {
-      width: 140px;
-      border: solid 1px #e3e3e3;
-      border-top-width: 3px;
-      border-radius: 3px;
-    }
-  }
-
-  .title-box {
-
-    .title-input {
-      border: solid 1px #e3e3e3;
-      border-top-width: 3px;
-      border-radius: 3px;
-    }
-  }
-
-  .type-transfer-checkbox {
-    list-style: none;
-    margin: 0;
-
-    .account-label {
-
-      .checkbox-box {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-right: 15px;
-        height: 50px;
-
-        .checkbox {
-          width: 30px;
-          height: 30px;
-          border: solid 1px #e3e3e3;
-          border-radius: 50%;
-          position: relative;
-          box-shadow: inset 3px 3px 20px -13px rgba(0,0,0,0.75);
-        }
-
-        p {
-          margin: 0 0 0 5px;
-        }
-
-        input:checked + .checkbox:after {
-          content: '';
-          display: block;
-          background-color: #00a90a;
-          width: 15px;
-          height: 15px;
-          border-radius: 50%;
-          position: absolute;
-          top: 6px;
-          right: 6px;
-        }
+      .continue-button {
+        width: 120px;
+        height:40px;
+        background-color: #0BBED3;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 5px;
       }
     }
   }
+}
 
-  form {
-    background-color: $white;
-    padding: 50px 20px;
-    border-radius: 10px;
-  }
+
+.error {
+  border: 1px solid red;
+  background-color: red;
 }
 
 

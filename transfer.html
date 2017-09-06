@@ -4,12 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login site</title>
+    <title>Transfer</title>
     <link rel="stylesheet" href="css/app.css">
-
-    <script src="https://cdn.anychart.com/js/7.14.0/anychart-bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.anychart.com/css/7.14.0/anychart-ui.min.css" />
-</head>
 <body>
 <!--header-->
 <header data-sticky-container>
@@ -53,14 +49,16 @@
     <div class="container">
         <div class="row align-center">
             <div class="column small-8">
-                <form action="">
+                <form class="transfer-form" action="">
                     <div class="row">
                         <div class="column small-12">
+                            <div class="back-arrow-box">
+                                <a href="" class="back-button"><img src="img/back-arrow.svg" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="column small-12">
                             <div class="account-box">
-                                <!--<select class="" name="accound-select" id="#">-->
-                                    <!--<option value="Current account">Current account</option>-->
-                                <!--</select>-->
-                                <div class="account-select">
+                                <div class="current-account" id="current-account">
                                     <div class="row">
                                         <div class="column small-1">
                                             <div class="account-icon-box">
@@ -79,13 +77,74 @@
                                             </div>
                                         </div>
                                         <div class="column small-1">
-                                            <div class="account-arrow-icon-box">
-                                                <img src="img/bottom-arrow.svg" alt="">
+                                            <div class="account-arrow-icon-box account-icon">
+                                                <img  src="img/bottom-arrow.svg" alt="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="button add-button">Add account from whitch you draw funds</div>-->
+                                <div class="account-list-box hide">
+                                    <ul class="account-list">
+                                        <li class="account-list-element">
+                                            <div class="row">
+                                                <div class="column small-1">
+                                                    <div class="account-icon-box">
+                                                        <img src="img/account-select-icon.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="column small-5">
+                                                    <div class="account-name-number-box">
+                                                        <span class="account-name">acc-2</span>
+                                                        <span class="account-number">33 1234 5678 2233 0000 8373 0002</span>
+                                                    </div>
+                                                </div>
+                                                <div class="column small-5">
+                                                    <div class="account-balance-box">
+                                                        <p class="account-balance"><span class="bold-font">2 917,50</span> PLN</p>
+                                                    </div>
+                                                </div>
+                                                <div class="column small-1">
+                                                    <div class="account-arrow-icon-box account-icon">
+                                                        <img  src="img/bottom-arrow.svg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="account-list-element">
+                                            <div class="row">
+                                                <div class="column small-1">
+                                                    <div class="account-icon-box">
+                                                        <img src="img/account-select-icon.svg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="column small-5">
+                                                    <div class="account-name-number-box">
+                                                        <span class="account-name">acc-3</span>
+                                                        <span class="account-number">33 1234 5678 2233 0000 8373 0003</span>
+                                                    </div>
+                                                </div>
+                                                <div class="column small-5">
+                                                    <div class="account-balance-box">
+                                                        <p class="account-balance"><span class="bold-font">2 917,50</span> PLN</p>
+                                                    </div>
+                                                </div>
+                                                <div class="column small-1">
+                                                    <div class="account-arrow-icon-box account-icon">
+                                                        <img  src="img/bottom-arrow.svg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column small-offset-3 small-9">
+                            <div class="add-account-button-box">
+                                <a href="#" class="add-account-button"><img src="img/add-account-button.svg" alt="">Add the account from which you draw funds</a>
                             </div>
                         </div>
                     </div>
@@ -162,6 +221,15 @@
                                 <input type="text" class="search-input" placeholder="Search for a recipient , contractor or customer">
                                 <a class="recipient-button" href="#"><img src="img/book-icon.svg" alt=""></a>
                                 <div class="border-div"></div>
+                                <div class="live-search-list-box">
+                                    <ul class="live-search-list hide">
+                                        <li class="live-search-list-element">Lorem</li>
+                                        <li class="live-search-list-element">ipsum</li>
+                                        <li class="live-search-list-element">dolor</li>
+                                        <li class="live-search-list-element">sit</li>
+                                        <li class="live-search-list-element">amet</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -174,7 +242,7 @@
                                 <li class="where-checkboxes-li">
                                     <label class="where-label" for="account">
                                         <div class="checkbox-box">
-                                            <input class="hide type-label" type="radio" name="where" id="account">
+                                            <input class="hide type-label" type="radio" name="where" id="account" checked>
                                             <div class="checkbox"></div>
                                             <p>Account</p>
                                         </div>
@@ -225,7 +293,7 @@
                         </div>
                         <div class="column small-9">
                             <div class="number-input-box">
-                                <input type="text" class="number-input">
+                                <input type="number" class="number-input">
                             </div>
                         </div>
                     </div>
@@ -235,9 +303,11 @@
                         </div>
                         <div class="column small-9">
                             <div class="sum-box">
-                                <input class="sum-input" type="text">
-                                <select class="sum-select" name="" id="">
-                                    <option value="PLN">PLN</option>
+                                <input class="sum-input" type="number">
+                                <select class="sum-select" name="currency" id="">
+                                    <option value="pln">PLN</option>
+                                    <option value="eur">EUR</option>
+                                    <option value="dol">DOL</option>
                                 </select>
                             </div>
                         </div>
@@ -248,7 +318,7 @@
                         </div>
                         <div class="column small-9">
                             <div class="when-box">
-                                <input class="when-input" type="date">
+                                <input class="when-input" type="text" placeholder="dd.mm.yy">
                             </div>
                         </div>
                     </div>
@@ -268,28 +338,28 @@
                         </div>
                         <div class="column small-9">
                             <ul class="button-group type-transfer-checkbox">
-                                <li class="where-checkboxes-li">
+                                <li class="type-checkboxes-li">
                                     <label class="account-label" for="normally">
                                         <div class="checkbox-box">
-                                            <input class="hide type-label" type="radio" name="where" id="normally">
+                                            <input class="hide type-label" type="radio" name="transfer-type" id="normally" checked>
                                             <div class="checkbox"></div>
                                             <p><span class="bold-font">Normally</span><br>about 2 days</p>
                                         </div>
                                     </label>
                                 </li>
-                                <li class="where-checkboxes-li">
+                                <li class="type-checkboxes-li">
                                     <label class="account-label" for="express-eliksir">
                                         <div class="checkbox-box">
-                                            <input class="hide type-label" type="radio" name="where" id="express-eliksir">
+                                            <input class="hide type-label" type="radio" name="transfer-type" id="express-eliksir">
                                             <div class="checkbox"></div>
                                             <p><span class="bold-font">Express Eliksir</span><br>15 min</p>
                                         </div>
                                     </label>
                                 </li>
-                                <li class="where-checkboxes-li">
+                                <li class="typee-checkboxes-li">
                                     <label class="account-label" for="sorbnet">
                                         <div class="checkbox-box">
-                                            <input class="hide type-label" type="radio" name="where" id="sorbnet">
+                                            <input class="hide type-label" type="radio" name="transfer-type" id="sorbnet">
                                             <div class="checkbox"></div>
                                             <p><span class="bold-font">Sorbnet</span><br>2 hours</p>
                                         </div>
@@ -299,17 +369,16 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="column small-offset-4 small-8 ">
-                            <div class="submit-button-box">
-                                <div class="submit-button button">CONTINUE</div>
+                        <div class="column small-offset-3 small-9 ">
+                            <div class="continue-button-box">
+                                <!--<div class="continue-button button">CONTINUE</div>-->
+                                <input class="button continue-button" type="submit" value="CONTINUE">
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-
         </div>
-
     </div>
 </main>
 <!--/main-->
@@ -321,6 +390,140 @@
 <script src="bower_components/what-input/dist/what-input.js"></script>
 <script src="bower_components/foundation-sites/dist/js/foundation.js"></script>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 <!--My JS-->
+
+<script>
+
+//    ACCOUNT-LIST
+    $(function() {
+        $(document).on('click', '.account-icon', function(e) {
+            $(".account-list-box").toggleClass('hide');
+        });
+        $(".account-list-element").on("click", function (e) {
+            $(".account-list-box").toggleClass('hide');
+
+            var htmlString = $(this).html();
+            $("#current-account").html(htmlString);
+        });
+
+
+    });
+//    LIVE SEARCH
+
+    jQuery(document).ready(function($){
+
+        $('.live-search-list li').each(function(){
+            $(this).attr('data-search-term', $(this).text().toLowerCase());
+        });
+
+        $(document).on('click', '.live-search-list-element', function() {
+            var value = $(this).text();
+            $('.search-input').val(value);
+            $('.live-search-list').addClass('hide');
+        });
+
+        var searchIn = $('.search-input')[0];
+        $('.search-input').on('blur', function (){
+
+            if (searchIn.value.length < 1) {
+                $('.live-search-list').addClass('hide');
+                console.log(searchIn.value.length);
+            }
+        });
+
+        $('.search-input').on('keyup', function(){
+
+            var searchTerm = $(this).val().toLowerCase();
+            $('.live-search-list').removeClass('hide');
+
+            $('.live-search-list li').each(function(){
+
+                if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+        });
+
+        $('.recipient-button').on('click', function(){
+           $('.search-input').focus();
+           $('.live-search-list').toggleClass('hide');
+        });
+    });
+
+//    DATE PICKER
+    $( function() {
+        var todayDate = Date();
+        var dateFormat = $.datepicker.formatDate('dd.mm.yy', new Date(todayDate));
+        $(".when-input").attr("placeholder", dateFormat);
+
+        $(".when-input").datepicker({
+            dateFormat: "dd.mm.yy",
+            minDate: dateFormat
+        });
+
+
+    });
+
+// WALIDACJA
+
+(function () {
+    const numberInput = $('.number-input')[0];
+    const sumInput = $('.sum-input')[0];
+    const dateInput = $('.when-input')[0];
+    const titleInput = $('.title-input')[0];
+    const submitButton = $('.continue-button')[0];
+    
+//    NUMBER
+    $(numberInput).on('blur', function (){
+        if (numberInput.value.length > 0 && numberInput.value.length < 26 ) {
+            $(numberInput).addClass("error");
+        } else {
+            $(numberInput).removeClass("error");
+        }
+    });
+
+//    SUM
+    $(sumInput).on('blur', function () {
+        if (sumInput.value.length > 0 && sumInput.value > 5000) {
+            $(sumInput).addClass("error");
+        }   else {
+            $(sumInput).removeClass("error");
+        }
+    });
+
+//    DATE
+    var todayDate = Date();
+    $(dateInput).on('blur', function () {
+       if (dateInput.value < $.datepicker.formatDate('dd.mm.yy', new Date(todayDate))) {
+           $(dateInput).addClass("error");
+       } else {
+           $(dateInput).removeClass('error');
+       }
+    });
+
+//    TITLE
+    $(titleInput).on('blur', function () {
+       if (titleInput.value.length > 0 && titleInput.value.length < 5) {
+           $(titleInput).addClass("error");
+       } else {
+           $(titleInput).removeClass("error");
+       }
+    });
+
+//    SUBMIT
+    $(submitButton).on('click', function (e) {
+        e.preventDefault();
+    })
+
+})();
+
+
+</script>
 </body>
 </html>
